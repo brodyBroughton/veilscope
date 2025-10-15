@@ -25,8 +25,7 @@
 
 *{box-sizing:border-box}
 
-/* Ensure the page can’t overflow horizontally on mobile,
-   which was clipping gradients / footer */
+/* Keep the canvas from overflowing horizontally on mobile */
 html,body{height:100%;width:100%;max-width:100%;overflow-x:hidden;scroll-behavior:smooth}
 
 body{
@@ -75,7 +74,10 @@ body{
 .nav-toggle{position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;pointer-events:none}
 
 .hamburger{display:none;margin-left:auto;cursor:pointer;padding:8px 2px;border-radius:10px}
-.hamburger .bar{display:block;width:34px;height:4px;margin:6px 10px;background:var(--color-secondary);border-radius:4px;transition:transform .25s ease,opacity .25s ease,visibility .25s ease}
+.hamburger .bar{
+  display:block;width:34px;height:4px;margin:6px 10px;background:var(--color-secondary);
+  border-radius:4px;transition:transform .25s ease; /* Only transform animates; opacity snaps */
+}
 
 /* Drawer */
 .mobile-drawer{position:fixed;z-index:999;top:var(--nav-height);left:0;right:0;bottom:0;background:var(--color-primary);transform:translateX(100%);transition:transform .32s ease;display:flex;flex-direction:column;padding:24px;overflow:auto}
@@ -84,11 +86,13 @@ body{
 .drawer-actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
 
 /* Menu open: slide in drawer and morph hamburger to X
-   Also completely hide the middle bar so it can't be seen */
+   Also hide the middle bar immediately (no fade-through). */
 #nav-toggle:checked ~ .mobile-drawer{transform:translateX(0)}
 #nav-toggle:checked + .site-header .hamburger .bar:nth-child(1){transform:translateY(10px) rotate(45deg)}
-#nav-toggle:checked + .site-header .hamburger .bar:nth-child(2){opacity:0;visibility:hidden}
+#nav-toggle:checked + .site-header .hamburger .bar:nth-child(2){opacity:0;visibility:hidden;transition:none}
 #nav-toggle:checked + .site-header .hamburger .bar:nth-child(3){transform:translateY(-10px) rotate(-45deg)}
+/* Also hide it the moment the user presses the button (prevents brief flash) */
+.site-header .hamburger:active .bar:nth-child(2){opacity:0;visibility:hidden;transition:none}
 
 @media (max-width:900px){.primary-nav,.nav-actions{display:none}.hamburger{display:inline-block}}
 @media (min-width:901px){.mobile-drawer{display:none!important;transform:translateX(100%)!important;pointer-events:none}}
@@ -99,7 +103,6 @@ body{
   min-height:clamp(520px,72vh,900px);
   margin-top:var(--nav-height);
   width:100%;
-  /* Full-viewport, non-repeating gradient that expands with content */
   background:linear-gradient(180deg,#3B82F6 0%,rgba(59,130,246,.92) 28%,rgba(59,130,246,.25) 58%,var(--color-primary) 82%);
   background-repeat:no-repeat;
   display:flex;align-items:flex-start
@@ -117,14 +120,15 @@ body{
 
 /* ===== Section: How it works ===== */
 .section-how{background:var(--color-primary);padding:clamp(40px,7vw,84px) 24px}
-.how-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,6vw,64px);align-items:center}
+.how-wrap{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,6vw,64px);align-items:center
+}
 .how-eyebrow{margin:0 0 8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--color-highlight);font-size:12px}
 .how-title{margin:0 0 14px;font-weight:800;letter-spacing:-.02em;line-height:1.12;color:var(--color-secondary);font-size:clamp(30px,5vw,52px)}
 .how-lede{margin:0 0 16px;max-width:58ch;font-size:clamp(16px,2.2vw,20px)}
 .how-link{display:inline-block;margin-top:6px;font-weight:700;text-decoration:none;color:var(--color-accent)}
 .how-visual{width:100%}
-@media (max-width:900px){.how-wrap{grid-template-columns:1fr}}
-
 .pipeline-svg{display:block;width:100%;max-width:640px;height:auto;margin-left:auto}
 .pipeline-svg .doc-plate{fill:#E5E7EB}
 .pipeline-svg .doc{fill:#FFFFFF;stroke:rgba(0,0,0,.10);stroke-width:1.5}
@@ -145,8 +149,6 @@ body{
 .features-head{text-align:center;margin-bottom:clamp(28px,6vw,48px)}
 .features-title{font-size:clamp(32px,4.6vw,48px);line-height:1.15;font-weight:800;letter-spacing:-.02em;margin:0}
 .features-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,56px);align-items:start}
-@media (max-width:900px){.features-grid{grid-template-columns:1fr}}
-
 .feature{display:flex;flex-direction:column}
 .feature-title{font-size:clamp(20px,2.2vw,24px);margin:18px 0 6px;font-weight:800}
 .feature-text{font-size:clamp(16px,1.8vw,20px);margin:0 0 8px;max-width:58ch}
@@ -177,7 +179,6 @@ body{
 /* ===== Final CTA ===== */
 .section-cta{background:var(--color-primary);padding:clamp(56px,8vw,96px) 24px}
 .cta-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,6vw,56px);align-items:center}
-@media (max-width:900px){.cta-wrap{grid-template-columns:1fr}}
 .cta-visual{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow:hidden;aspect-ratio:16/10;min-height:300px;display:flex;align-items:center;justify-content:center}
 .network-svg{width:100%;height:100%;display:block}
 .cta-title{font-weight:800;letter-spacing:-.02em;font-size:clamp(28px,4.8vw,44px);line-height:1.12;margin:0 0 8px}
@@ -220,7 +221,7 @@ body{
 .footer-leadin{width:100%;height:clamp(80px,12vw,140px);background:linear-gradient(180deg,rgba(59,130,246,0) 0%,rgba(59,130,246,.10) 60%,rgba(236,72,153,.14) 100%)}
 .site-footer{background:var(--color-secondary);color:#E5E7EB}
 
-/* Make all footer links inherit the footer palette (fixes default blue) */
+/* Make all footer links inherit the footer palette */
 .site-footer a{color:#E5E7EB;text-decoration:none}
 .site-footer a:hover{color:#ffffff;text-decoration:underline}
 
@@ -251,18 +252,29 @@ body{
    Mobile centering adjustments
    ============================== */
 @media (max-width:720px){
+  /* HERO */
   .hero-inner{padding:64px 16px 88px;text-align:center}
   .hero-subtitle{margin-left:auto;margin-right:auto}
   .hero-ctas{justify-content:center;flex-wrap:wrap}
 
-  .how-wrap{grid-template-columns:1fr;text-align:center}
-  .pipeline-svg{margin:12px auto 0 auto}
+  /* HOW IT WORKS — center both columns and the SVG */
+  .how-wrap{
+    grid-template-columns:1fr;
+    justify-items:center; /* centers grid items */
+    align-items:center;
+    text-align:center;
+  }
+  .how-copy,.how-visual{width:100%;max-width:700px}
+  .pipeline-svg{width:min(100%,520px);margin:12px auto 0 auto}
 
-  .features-head{text-align:center}
-  .features-grid{grid-template-columns:1fr;text-align:center}
-  .feature-visual .viz-card{margin-left:auto;margin-right:auto}
-  .feature-title,.feature-text{margin-left:auto;margin-right:auto}
+  /* FEATURES — center each feature block and cap card widths */
+  .features-grid{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .feature{align-items:center}
+  .feature-visual .viz-card{width:min(100%,560px);margin-left:auto;margin-right:auto}
+  .viz-card--wide{width:min(100%,720px)}
 
-  .cta-wrap{grid-template-columns:1fr;text-align:center}
+  /* CTA — center both sides and constrain illustration */
+  .cta-wrap{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .cta-visual{width:min(100%,720px)}
   .cta-actions{justify-content:center}
 }
