@@ -174,7 +174,7 @@ img,svg{max-width:100%;height:auto;display:block}
 /* Scorecard mini UI */
 .score-panel{
   background:var(--color-secondary);color:#fff;
-  width:clamp(260px,52vw,420px); /* fluid width that scales down on mobile */
+  width:clamp(260px,52vw,420px);
   border-radius:16px;padding:18px 20px;box-shadow:0 8px 24px rgba(0,0,0,.25)
 }
 .score-label{text-transform:uppercase;letter-spacing:.08em;font-weight:800;font-size:12px;color:#CBD5E1}
@@ -261,68 +261,78 @@ img,svg{max-width:100%;height:auto;display:block}
 .legal-links a:hover{text-decoration:underline}
 
 /* ==============================
-   Mobile centering & scaling
+   Mobile centering & LEFT alignment
    ============================== */
 @media (max-width:720px){
-  /* HERO */
+
+  /* HERO (unchanged alignment) */
   .hero-inner{padding:64px 16px 88px;text-align:center}
   .hero-title{font-size:clamp(30px,8vw,42px)}
   .hero-subtitle{font-size:clamp(15px,4.5vw,20px);margin-left:auto;margin-right:auto}
   .hero-ctas{justify-content:center;flex-wrap:wrap}
   .btn{--pad-x:16px;--pad-y:10px}
 
-  /* HOW IT WORKS — center both columns and the SVG */
+  /* HOW IT WORKS — left align and respect safe areas */
   .how-wrap{
     grid-template-columns:1fr;
-    justify-items:center; /* centers grid items */
-    align-items:center;
-    text-align:center;
+    justify-items:start;
+    text-align:left;
+    padding-left:clamp(16px, env(safe-area-inset-left) + 10px, 26px);
+    padding-right:clamp(10px, env(safe-area-inset-right) + 4px, 18px);
+    width:100%;
   }
   .how-copy,.how-visual{width:100%;max-width:700px}
   .how-title{font-size:clamp(26px,7vw,40px)}
   .how-lede{font-size:clamp(14px,4.2vw,18px)}
-  .pipeline-svg{width:min(92vw,480px);margin:12px auto 0 auto}
+  .pipeline-svg{width:min(92vw,480px);margin:12px 0 0 0}
 
-  /* FEATURES — true centering of figures + all text, with fluid downsizing */
+  /* FEATURES — left align, scale down, and pin cards to the left */
+  .features-wrap{
+    padding-left:clamp(16px, env(safe-area-inset-left) + 10px, 26px);
+    padding-right:clamp(10px, env(safe-area-inset-right) + 4px, 18px);
+  }
+  .features-head{text-align:left}
   .features-grid{
     grid-template-columns:1fr;
-    justify-items:center;
-    text-align:center;
+    justify-items:start;
+    text-align:left;
   }
   .feature{
-    align-items:center;
+    align-items:flex-start;
     width:100%;
     max-width:720px;
   }
   .feature-visual{
     margin:0;
-    display:flex;
-    justify-content:center;
     width:100%;
+    display:block;
   }
   .feature-visual .viz-card{
-    /* scale the card to the viewport, but cap width so it centers nicely */
     width:min(92vw,520px);
-    min-height:200px;          /* reduce min height on small screens */
+    min-height:200px;
     max-height:320px;
-    margin:0 auto;
+    margin:0;                 /* pin to left */
   }
-  .viz-card--wide{width:min(94vw,680px)}
+  .viz-card--wide{width:min(94vw,680px);margin:0}
   .feature-title{font-size:clamp(18px,5.2vw,22px)}
   .feature-text{font-size:clamp(14px,4.4vw,18px);max-width:42ch}
-  .text-link{display:inline-block;margin-left:auto;margin-right:auto}
 
   /* Scorecard scales down fluidly */
   .score-panel{width:clamp(240px,80vw,340px)}
-  .score-number{font-size:clamp(26px,9vw,38px)}
-  .factors{font-size:clamp(12px,3.8vw,14px)}
 
-  /* CTA — center both sides and constrain illustration */
-  .cta-wrap{grid-template-columns:1fr;justify-items:center;text-align:center}
+  /* CTA — left align and respect safe areas */
+  .cta-wrap{
+    grid-template-columns:1fr;
+    justify-items:start;
+    text-align:left;
+    padding-left:clamp(16px, env(safe-area-inset-left) + 10px, 26px);
+    padding-right:clamp(10px, env(safe-area-inset-right) + 4px, 18px);
+    width:100%;
+  }
   .cta-visual{width:min(94vw,700px)}
   .cta-title{font-size:clamp(24px,7vw,38px)}
   .cta-lede{font-size:clamp(14px,4.2vw,18px)}
-  .cta-actions{justify-content:center}
+  .cta-actions{justify-content:flex-start}
 }
 
 /* Extra small devices */
