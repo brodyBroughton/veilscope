@@ -40,6 +40,9 @@ body{
 .skip-link{position:absolute;left:-9999px;top:0;background:#fff;color:var(--color-secondary);padding:10px 14px;border-radius:8px;box-shadow:var(--shadow-subtle)}
 .skip-link:focus{left:12px;top:12px;z-index:1001}
 
+/* Make any inline images/SVGs responsive by default */
+img,svg{max-width:100%;height:auto;display:block}
+
 /* ===== Header / Nav ===== */
 .site-header{position:fixed;inset:0 0 auto 0;z-index:1000;background:var(--color-primary);box-shadow:var(--shadow-subtle);height:var(--nav-height)}
 .nav-wrap{max-width:1200px;margin:0 auto;height:100%;padding:0 var(--gap-4);display:flex;align-items:center;gap:var(--gap-4)}
@@ -86,7 +89,7 @@ body{
 .drawer-actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
 
 /* Menu open: slide in drawer and morph hamburger to X
-   Also hide the middle bar immediately (no fade-through). */
+   Hide the middle bar immediately (no fade-through). */
 #nav-toggle:checked ~ .mobile-drawer{transform:translateX(0)}
 #nav-toggle:checked + .site-header .hamburger .bar:nth-child(1){transform:translateY(10px) rotate(45deg)}
 #nav-toggle:checked + .site-header .hamburger .bar:nth-child(2){opacity:0;visibility:hidden;transition:none}
@@ -147,32 +150,40 @@ body{
 .section-features{background:var(--color-primary);padding:clamp(56px,8vw,96px) 24px}
 .features-wrap{max-width:1200px;margin:0 auto}
 .features-head{text-align:center;margin-bottom:clamp(28px,6vw,48px)}
-.features-title{font-size:clamp(32px,4.6vw,48px);line-height:1.15;font-weight:800;letter-spacing:-.02em;margin:0}
+.features-title{font-size:clamp(28px,5.2vw,46px);line-height:1.15;font-weight:800;letter-spacing:-.02em;margin:0}
 .features-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,56px);align-items:start}
 .feature{display:flex;flex-direction:column}
-.feature-title{font-size:clamp(20px,2.2vw,24px);margin:18px 0 6px;font-weight:800}
-.feature-text{font-size:clamp(16px,1.8vw,20px);margin:0 0 8px;max-width:58ch}
+.feature-title{font-size:clamp(18px,2.1vw,22px);margin:18px 0 6px;font-weight:800}
+.feature-text{font-size:clamp(15px,1.7vw,19px);margin:0 0 8px;max-width:58ch}
 .text-link{color:var(--color-accent);text-decoration:none;font-weight:700}
 .text-link:hover{text-decoration:underline}
 
 .feature-visual .viz-card{
-  width:100%;aspect-ratio:var(--viz-aspect);min-height:var(--viz-min-h);max-height:var(--viz-max-h);
+  width:100%;
+  aspect-ratio:var(--viz-aspect);
+  min-height:var(--viz-min-h);
+  max-height:var(--viz-max-h);
   background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:16px;
-  transition:transform .18s ease,box-shadow .18s ease;display:flex;align-items:center;justify-content:center
+  transition:transform .18s ease,box-shadow .18s ease;
+  display:flex;align-items:center;justify-content:center
 }
 .feature-visual .viz-card:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.12)}
 .viz-card--wide{padding:0}
 .filings-svg{width:100%;height:100%;display:block}
 
 /* Scorecard mini UI */
-.score-panel{background:var(--color-secondary);color:#fff;width:clamp(280px,62%,420px);border-radius:16px;padding:20px 22px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.score-panel{
+  background:var(--color-secondary);color:#fff;
+  width:clamp(260px,52vw,420px); /* fluid width that scales down on mobile */
+  border-radius:16px;padding:18px 20px;box-shadow:0 8px 24px rgba(0,0,0,.25)
+}
 .score-label{text-transform:uppercase;letter-spacing:.08em;font-weight:800;font-size:12px;color:#CBD5E1}
 .score-value{display:flex;align-items:baseline;gap:8px;margin:8px 0 12px}
-.score-number{font-size:44px;font-weight:800;line-height:1}
+.score-number{font-size:clamp(30px,7vw,44px);font-weight:800;line-height:1}
 .muted{opacity:.85;font-weight:700}
 .score-bar{height:8px;width:100%;background:rgba(255,255,255,.18);border-radius:999px;overflow:hidden;margin-bottom:14px}
 .score-fill{display:block;height:100%;background:var(--color-accent-2);border-radius:999px}
-.factors{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:14px}
+.factors{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:clamp(12px,3.4vw,14px)}
 .factors li{display:flex;align-items:center;gap:8px}
 .factors .dot{width:8px;height:8px;border-radius:50%;background:var(--color-accent-2);flex:0 0 auto}
 
@@ -182,8 +193,8 @@ body{
 @media (max-width:900px){.cta-wrap{grid-template-columns:1fr}}
 .cta-visual{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow:hidden;aspect-ratio:16/10;min-height:300px;display:flex;align-items:center;justify-content:center}
 .network-svg{width:100%;height:100%;display:block}
-.cta-title{font-weight:800;letter-spacing:-.02em;font-size:clamp(28px,4.8vw,44px);line-height:1.12;margin:0 0 8px}
-.cta-lede{font-size:clamp(16px,2vw,20px);margin:0 0 16px}
+.cta-title{font-weight:800;letter-spacing:-.02em;font-size:clamp(26px,4.8vw,42px);line-height:1.12;margin:0 0 8px}
+.cta-lede{font-size:clamp(15px,2vw,19px);margin:0 0 16px}
 .cta-actions{display:flex;gap:12px;flex-wrap:wrap}
 
 /* ===== Page scaffolding (shared) ===== */
@@ -250,13 +261,15 @@ body{
 .legal-links a:hover{text-decoration:underline}
 
 /* ==============================
-   Mobile centering adjustments
+   Mobile centering & scaling
    ============================== */
 @media (max-width:720px){
   /* HERO */
   .hero-inner{padding:64px 16px 88px;text-align:center}
-  .hero-subtitle{margin-left:auto;margin-right:auto}
+  .hero-title{font-size:clamp(30px,8vw,42px)}
+  .hero-subtitle{font-size:clamp(15px,4.5vw,20px);margin-left:auto;margin-right:auto}
   .hero-ctas{justify-content:center;flex-wrap:wrap}
+  .btn{--pad-x:16px;--pad-y:10px}
 
   /* HOW IT WORKS — center both columns and the SVG */
   .how-wrap{
@@ -266,35 +279,55 @@ body{
     text-align:center;
   }
   .how-copy,.how-visual{width:100%;max-width:700px}
-  .pipeline-svg{width:min(100%,520px);margin:12px auto 0 auto}
+  .how-title{font-size:clamp(26px,7vw,40px)}
+  .how-lede{font-size:clamp(14px,4.2vw,18px)}
+  .pipeline-svg{width:min(92vw,480px);margin:12px auto 0 auto}
 
-  /* FEATURES — true centering of figures + all text */
+  /* FEATURES — true centering of figures + all text, with fluid downsizing */
   .features-grid{
     grid-template-columns:1fr;
     justify-items:center;
     text-align:center;
   }
   .feature{
-    align-items:center;           /* center the flex column contents */
+    align-items:center;
     width:100%;
-    max-width:720px;              /* prevent overly wide articles */
+    max-width:720px;
   }
   .feature-visual{
-    margin:0;                     /* remove default figure margin */
+    margin:0;
     display:flex;
     justify-content:center;
     width:100%;
   }
   .feature-visual .viz-card{
-    width:min(100%,560px);
+    /* scale the card to the viewport, but cap width so it centers nicely */
+    width:min(92vw,520px);
+    min-height:200px;          /* reduce min height on small screens */
+    max-height:320px;
     margin:0 auto;
   }
-  .viz-card--wide{width:min(100%,720px)}
-  .feature-title,.feature-text{margin-left:auto;margin-right:auto}
+  .viz-card--wide{width:min(94vw,680px)}
+  .feature-title{font-size:clamp(18px,5.2vw,22px)}
+  .feature-text{font-size:clamp(14px,4.4vw,18px);max-width:42ch}
   .text-link{display:inline-block;margin-left:auto;margin-right:auto}
+
+  /* Scorecard scales down fluidly */
+  .score-panel{width:clamp(240px,80vw,340px)}
+  .score-number{font-size:clamp(26px,9vw,38px)}
+  .factors{font-size:clamp(12px,3.8vw,14px)}
 
   /* CTA — center both sides and constrain illustration */
   .cta-wrap{grid-template-columns:1fr;justify-items:center;text-align:center}
-  .cta-visual{width:min(100%,720px)}
+  .cta-visual{width:min(94vw,700px)}
+  .cta-title{font-size:clamp(24px,7vw,38px)}
+  .cta-lede{font-size:clamp(14px,4.2vw,18px)}
   .cta-actions{justify-content:center}
+}
+
+/* Extra small devices */
+@media (max-width:380px){
+  .btn{--pad-x:14px;--pad-y:9px}
+  .feature-visual .viz-card{width:94vw;min-height:180px}
+  .viz-card--wide{width:96vw}
 }
