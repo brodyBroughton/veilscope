@@ -77,7 +77,7 @@ body.webapp{
 /* Left cluster */
 .topbar-left{ display:flex; align-items:center; gap:10px; min-width: 0; }
 
-/* center tabs scroll when narrow */
+/* center tabs scroll when narrow (desktop/tablet) */
 .tabbar{ display:flex; gap:8px; align-items:center; overflow:auto; min-width: 0; }
 
 /* Tab + close grouped */
@@ -266,8 +266,9 @@ html[data-theme="dark"] .logo-dark{ display:none; }
 .modal-note{ font-size: 13px; color: var(--ink-2); }
 
 /* ===== Responsive ===== */
+
+/* Desktop & large tablets: persistent rail, no scrim */
 @media (min-width: 992px){
-  /* Desktop: drawer is a visible rail; hide hamburger */
   .menu-btn{ display:none; }
   .app-drawer{ position: sticky; top: var(--topbar-h); height: calc(100vh - var(--topbar-h) - var(--status-h)); transform:none; width: var(--rail-w); }
   .scrim{ display:none !important; }
@@ -280,7 +281,32 @@ html[data-theme="dark"] .logo-dark{ display:none; }
   .workbench{ grid-row: 2; grid-column: 2; max-width: unset; margin: 12px 12px 0 12px; }
   .statusbar{ grid-row: 3; grid-column: 1 / span 2; }
 }
+
+/* Mobile & small tablets */
 @media (max-width: 991px){
   .webapp{ padding-bottom: var(--status-h); }
   .workbench{ grid-template-columns: 1fr; }
+
+  /* Hide the VS Code-like tabs on small screens to avoid horizontal scroll */
+  .tabbar{ display: none; } /* keeps topbar left/right clusters intact */
+
+  /* Stack factor items: first line = dot + label, second line = description */
+  .factor-list li{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "dot label"
+      ".   desc";
+    column-gap: 8px;
+    row-gap: 2px;
+    align-items: start;
+  }
+  .factor-list li > .dot{ grid-area: dot; margin-top: .3em; }
+  .factor-list li > strong{ grid-area: label; margin-right: 0; }
+  .factor-list li > span:not(.dot){
+    grid-area: desc;
+    display: block;
+    margin-top: 2px;
+    overflow-wrap: anywhere; /* prevent overflow with long tokens */
+  }
 }
