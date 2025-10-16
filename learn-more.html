@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learn More — Veilscope</title>
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/img/icons/site.webmanifest">
+  <meta name="theme-color" content="#F3F4F6">
+  <meta name="msapplication-TileColor" content="#F3F4F6">
+
+  <!-- Fonts + global + page CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <link rel="stylesheet" href="assets/css/pages/learn-more.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-hidden="true" />
+
+  <!-- ===== Header / Nav ===== -->
+  <header class="site-header" role="banner">
+    <div class="nav-wrap">
+      <a class="brand" href="/" aria-label="Veilscope Home">
+        <img class="brand-logo" src="assets/img/logos/veilscope-logo-dark.png" alt="Veilscope" />
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="learn-more.html" aria-current="page">Learn More</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="updates.html">Project Updates</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-login" href="https://app.veilscope.com/login">Log In</a>
+        <a class="btn btn-get-started" href="https://app.veilscope.com/signup">Create a free account</a>
+      </div>
+
+      <label class="hamburger" for="nav-toggle" role="button"
+             aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+      </label>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <aside id="mobile-menu" class="mobile-drawer" aria-label="Mobile navigation">
+    <nav class="drawer-nav">
+      <a class="drawer-link" href="learn-more.html" aria-current="page">Learn More</a>
+      <a class="drawer-link" href="about.html">About Us</a>
+      <a class="drawer-link" href="updates.html">Project Updates</a>
+    </nav>
+    <div class="drawer-actions">
+      <a class="btn btn-get-started" href="https://app.veilscope.com/signup">Create a free account</a>
+      <a class="btn btn-login" href="https://app.veilscope.com/login">Log In</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <!-- ===== Hero ===== -->
+    <section class="lm-hero" aria-labelledby="lm-title">
+      <div class="container">
+        <h1 id="lm-title">Understand company risk from SEC filings — fast</h1>
+        <p class="subhead">
+          We turn dense 10-K/10-Q reports into plain-English risk scorecards so individual investors can make more informed decisions.
+        </p>
+        <div class="hero-ctas">
+          <!-- Primary CTA uses a specific, expectation-setting label -->
+          <a class="btn btn-get-started" href="https://app.veilscope.com/signup">Create a free account</a>
+          <a class="btn btn-secondary" href="#how-title">See how it works</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Problem → Solution ===== -->
+    <section class="section ps" aria-labelledby="ps-title">
+      <div class="container">
+        <div class="grid two">
+          <div>
+            <h2 id="ps-title">The problem</h2>
+            <p>
+              SEC filings (10-K and 10-Q) are long, technical, and time-consuming. Non-experts struggle to translate them into actionable insights.
+            </p>
+          </div>
+          <div>
+            <h2>The solution</h2>
+            <p>
+              Veilscope retrieves filings via the SEC EDGAR APIs, extracts key financial data, and uses an AI model to generate a concise risk “scorecard.”
+              You see the signals that matter—without wading through hundreds of pages.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== How it works (diagram) ===== -->
+    <section class="section how" aria-labelledby="how-title">
+      <div class="container">
+        <h2 id="how-title">How it works</h2>
+
+        <ol class="flow" aria-label="Process steps">
+          <li class="node">
+            <div class="node-body">
+              <h3>1) Retrieve</h3>
+              <p>Pull 10-K/10-Q data programmatically from the SEC EDGAR APIs.</p>
+            </div>
+          </li>
+          <li class="node">
+            <div class="node-body">
+              <h3>2) Extract</h3>
+              <p>Capture key sections (Risk Factors, MD&amp;A) and core financials.</p>
+            </div>
+          </li>
+          <li class="node">
+            <div class="node-body">
+              <h3>3) Generate</h3>
+              <p>Create a plain-English scorecard that summarizes overall risk.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="note trust">
+          Built on public filings from the SEC’s EDGAR system. We prioritize clear language and transparent sources.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA band (trust + action) ===== -->
+    <section class="section cta-band" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-card">
+          <h2 id="cta-title">See your first risk scorecard</h2>
+          <p>Set up a free account and explore risk signals pulled directly from SEC filings.</p>
+          <a class="btn btn-get-started" href="https://app.veilscope.com/signup">Create a free account</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== What goes into the scorecard ===== -->
+    <section class="section method" aria-labelledby="method-title">
+      <div class="container">
+        <h2 id="method-title">What goes into the scorecard</h2>
+        <div class="grid three">
+          <div class="card">
+            <h3>Inputs</h3>
+            <ul class="list" role="list">
+              <li>Risk Factors &amp; MD&amp;A</li>
+              <li>Financial statements &amp; key ratios</li>
+              <li>Company metadata</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Signals</h3>
+            <ul class="list" role="list">
+              <li>Qualitative cues from narratives</li>
+              <li>Quantitative checks (ratios &amp; trends)</li>
+              <li>Consistency across reports</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Output</h3>
+            <ul class="list" role="list">
+              <li>Risk summary in plain English</li>
+              <li>Highlights &amp; flags</li>
+              <li>Links back to source sections</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Research backdrop (short) ===== -->
+    <section class="section research" aria-labelledby="research-title">
+      <div class="container">
+        <h2 id="research-title">What we build on</h2>
+        <ul class="bullets" role="list">
+          <li>EDGAR provides free, programmatic access to filings.</li>
+          <li>AI is widely used in finance; our focus is accessibility for individual investors.</li>
+          <li>We combine text analysis with simple quantitative checks for balance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Challenges (native details accordions) ===== -->
+    <section class="section challenges" aria-labelledby="ch-title">
+      <div class="container">
+        <h2 id="ch-title">Challenges &amp; how we address them</h2>
+
+        <details class="disc">
+          <summary><span>Complexity of SEC filings</span></summary>
+          <div class="disc-panel">
+            <p>Filings are lengthy and inconsistent. We begin with key sections (Risk Factors, MD&amp;A, core financials) and expand as we validate utility.</p>
+          </div>
+        </details>
+
+        <details class="disc">
+          <summary><span>Model accuracy &amp; interpretation</span></summary>
+          <div class="disc-panel">
+            <p>We balance qualitative AI with quantitative checks (ratios &amp; growth patterns) and manually validate on sample companies.</p>
+          </div>
+        </details>
+
+        <details class="disc">
+          <summary><span>Limited team experience</span></summary>
+          <div class="disc-panel">
+            <p>We invest in a research phase to study filings and practice small API queries; we’ll seek advisor feedback at milestones.</p>
+          </div>
+        </details>
+
+        <details class="disc">
+          <summary><span>Time management</span></summary>
+          <div class="disc-panel">
+            <p>We ship a working prototype first (retrieve → extract → summarize), then add deeper analysis once the base is stable.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===== Future additions ===== -->
+    <section class="section future" aria-labelledby="future-title">
+      <div class="container">
+        <div class="card card-future">
+          <h2 id="future-title">Future addition: fraud detection</h2>
+          <p>
+            Analyze anomalies in financials and suspicious language in Risk Factors to flag potential irregularities—moving from risk scoring toward early fraud signals.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ (placeholders) ===== -->
+    <section class="section faq" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title">FAQ</h2>
+
+        <details class="disc">
+          <summary><span>Where does your data come from?</span></summary>
+          <div class="disc-panel">
+            <p>From the SEC’s EDGAR system via public APIs. We link back to source sections when possible.</p>
+          </div>
+        </details>
+
+        <details class="disc">
+          <summary><span>How often is information updated?</span></summary>
+          <div class="disc-panel">
+            <p>We refresh based on new or amended filings available through EDGAR.</p>
+          </div>
+        </details>
+
+        <details class="disc">
+          <summary><span>Is this investment advice?</span></summary>
+          <div class="disc-panel">
+            <p>No. We provide educational risk summaries derived from public filings. Investment decisions are your responsibility.</p>
+          </div>
+        </details>
+
+        <details class="disc">
+          <summary><span>Can I see how the score was generated?</span></summary>
+          <div class="disc-panel">
+            <p>We aim to show inputs and highlight snippets used in the summary wherever possible.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===== Disclaimer ===== -->
+    <section class="section disclaimer" aria-labelledby="disc-title">
+      <div class="container">
+        <div class="callout">
+          <h2 id="disc-title">Important</h2>
+          <p>
+            Veilscope is not a financial advisor. We summarize public information from SEC filings to help you learn. Nothing here is investment advice; investing involves risk and you are responsible for your decisions.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer-leadin" aria-hidden="true"></div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-wrap">
+      <section class="footer-brand">
+        <a class="brand brand--footer" href="/" aria-label="Veilscope Home">
+          <img class="brand-logo" src="assets/img/logos/veilscope-logo-light.png" alt="Veilscope" />
+        </a>
+        <p class="footer-tagline">AI insights from public financial filings.</p>
+
+        <form class="newsletter" action="#" method="post" novalidate>
+          <label class="newsletter-label" for="newsletter-email">Project Updates</label>
+          <div class="newsletter-row">
+            <input id="newsletter-email" name="email" type="email" placeholder="you@example.com" required />
+            <button class="btn btn-get-started" type="submit">Subscribe</button>
+          </div>
+          <p class="newsletter-help">By signing up, you agree to receive emails. Read our <a href="#">Privacy Policy</a>.</p>
+          <p class="newsletter-msg" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <nav class="footer-col" aria-label="Explore">
+        <h3 class="footer-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="learn-more.html" aria-current="page">About the Project</a></li>
+          <li><a href="updates.html">Project Updates</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#faq-title">Help &amp; FAQ</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Connect">
+        <h3 class="footer-title">Connect</h3>
+        <ul class="footer-links">
+          <li><a href="#">Resources and References</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Socials">
+        <h3 class="footer-title">Socials</h3>
+        <ul class="footer-links">
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">© <span id="year"></span> Veilscope. All rights reserved.</p>
+      <ul class="legal-links">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Status</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

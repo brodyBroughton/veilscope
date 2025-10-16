@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us — Veilscope</title>
+
+  <!-- Favicons (same as index) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/img/icons/site.webmanifest">
+  <meta name="theme-color" content="#F3F4F6">
+  <meta name="msapplication-TileColor" content="#F3F4F6">
+
+  <!-- Fonts + global + page CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/css/pages/about.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Mobile nav toggle (matches index.html) -->
+  <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-hidden="true" />
+
+  <!-- ===== Header / Nav ===== -->
+  <header class="site-header" role="banner">
+    <div class="nav-wrap">
+      <a class="brand" href="/" aria-label="Veilscope Home">
+        <img class="brand-logo" src="assets/img/logos/veilscope-logo-dark.png" alt="Veilscope" />
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="learn-more.html">Learn More</a></li>
+          <li><a href="about.html" aria-current="page">About Us</a></li>
+          <li><a href="updates.html">Project Updates</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-login" href="https://app.veilscope.com/login">Log In</a>
+        <a class="btn btn-get-started" href="https://app.veilscope.com/signup">Get Started</a>
+      </div>
+
+      <label class="hamburger" for="nav-toggle" role="button"
+             aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+      </label>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <aside id="mobile-menu" class="mobile-drawer" aria-label="Mobile navigation">
+    <nav class="drawer-nav">
+      <a class="drawer-link" href="learn-more.html">Learn More</a>
+      <a class="drawer-link" href="about.html" aria-current="page">About Us</a>
+      <a class="drawer-link" href="updates.html">Project Updates</a>
+    </nav>
+    <div class="drawer-actions">
+      <a class="btn btn-get-started" href="https://app.veilscope.com/signup">Get Started</a>
+      <a class="btn btn-login" href="https://app.veilscope.com/login">Log In</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <!-- ===== Hero ===== -->
+    <section class="about-hero" aria-labelledby="about-title">
+      <div class="container">
+        <h1 id="about-title">Turning SEC filings into simple risk scorecards</h1>
+        <p class="subhead">
+          We fetch 10-K/10-Q data from the SEC EDGAR API, extract key signals,
+          and generate a plain-English risk summary—so individual investors decide faster.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Why / Snapshot ===== -->
+    <section class="about-why" aria-labelledby="why-title">
+      <div class="container">
+        <div class="why-grid">
+          <div class="why-col">
+            <h2 id="why-title">Why Veilscope</h2>
+            <p>
+              SEC filings are long, technical, and tough to parse. Our AI-powered system
+              retrieves disclosures via EDGAR, extracts the right data, and assembles a
+              company risk “scorecard” you can actually use.
+            </p>
+            <ul class="check-list" role="list">
+              <li>Built on SEC EDGAR data</li>
+              <li>Plain-English risk summaries</li>
+              <li>Transparent sources &amp; methodology</li>
+            </ul>
+          </div>
+
+          <div class="why-col">
+            <div class="card">
+              <h3 class="card-title">How it works (3 steps)</h3>
+              <ol class="steps" aria-label="Processing steps">
+                <li><strong>Retrieve</strong> filings via EDGAR</li>
+                <li><strong>Extract</strong> key financial signals</li>
+                <li><strong>Generate</strong> an AI risk scorecard</li>
+              </ol>
+              <div class="meta note">
+                This high-school senior capstone project aims to make complex disclosures more approachable
+                for new investors.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Team ===== -->
+    <section class="team" aria-labelledby="team-title">
+      <div class="container">
+        <h2 id="team-title">Team</h2>
+
+        <!-- Founding Team -->
+        <div class="team-group" aria-labelledby="founders-title">
+          <h3 id="founders-title" class="group-title">Founding Team</h3>
+          <div class="team-grid">
+
+            <!-- Jacob -->
+            <article class="team-card">
+              <div class="team-media" aria-hidden="true">
+                <img
+                  src="https://placehold.co/800x1000?text=Jacob%20Casey"
+                  width="800" height="1000" loading="lazy"
+                  alt="Jacob Casey, Co-founder & Head of AI/Back-End" />
+              </div>
+              <div class="team-body">
+                <h4 class="name">Jacob Casey</h4>
+                <div class="role">Co-founder &amp; Head of AI/Back-End</div>
+                <p class="bio">
+                  Builds our EDGAR/XBRL pipeline and risk model that powers each scorecard.
+                </p>
+                <ul class="tags" role="list">
+                  <li>Retrieval</li>
+                  <li>Back-End</li>
+                  <li>LLMs</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Brody -->
+            <article class="team-card">
+              <div class="team-media" aria-hidden="true">
+                <img
+                  src="https://placehold.co/800x1000?text=Brody%20Broughton"
+                  width="800" height="1000" loading="lazy"
+                  alt="Brody Broughton, Co-founder & Product Designer / Front-End Lead" />
+              </div>
+              <div class="team-body">
+                <h4 class="name">Brody Broughton</h4>
+                <div class="role">Co-founder &amp; Product Designer / Front-End Lead</div>
+                <p class="bio">
+                  Designs the end-to-end experience and leads the web build; later moves into back-end.
+                </p>
+                <ul class="tags" role="list">
+                  <li>Design</li>
+                  <li>Front-End</li>
+                  <li>UX</li>
+                </ul>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Sponsor -->
+        <div class="team-group" aria-labelledby="sponsor-title">
+          <h3 id="sponsor-title" class="group-title">Sponsor</h3>
+          <div class="team-grid sponsor-grid">
+            <article class="team-card">
+              <div class="team-media" aria-hidden="true">
+                <img
+                  src="https://placehold.co/800x1000?text=John%20Leonard"
+                  width="800" height="1000" loading="lazy"
+                  alt="John Leonard, Project Sponsor & Advisor" />
+              </div>
+              <div class="team-body">
+                <h4 class="name">John Leonard</h4>
+                <div class="role">Project Sponsor &amp; Advisor</div>
+                <p class="bio">
+                  Guides scope and milestones; keeps us aligned with stakeholder needs.
+                </p>
+                <ul class="tags" role="list">
+                  <li>Advisory</li>
+                  <li>Scope</li>
+                  <li>Milestones</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Gradient lead-in for footer -->
+  <div class="footer-leadin" aria-hidden="true"></div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-wrap">
+      <section class="footer-brand">
+        <a class="brand brand--footer" href="/" aria-label="Veilscope Home">
+          <img class="brand-logo" src="assets/img/logos/veilscope-logo-light.png" alt="Veilscope" />
+        </a>
+        <p class="footer-tagline">AI insights from public financial filings.</p>
+
+        <form class="newsletter" action="#" method="post" novalidate>
+          <label class="newsletter-label" for="newsletter-email">Project Updates</label>
+          <div class="newsletter-row">
+            <input id="newsletter-email" name="email" type="email" placeholder="you@example.com" required />
+            <button class="btn btn-get-started" type="submit">Subscribe</button>
+          </div>
+          <p class="newsletter-help">By signing up, you agree to receive emails. Read our <a href="#">Privacy Policy</a>.</p>
+          <p class="newsletter-msg" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <nav class="footer-col" aria-label="Explore">
+        <h3 class="footer-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="learn-more.html">About the Project</a></li>
+          <li><a href="updates.html">Project Updates</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="learn-more.html#faq">Help &amp; FAQ</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Connect">
+        <h3 class="footer-title">Connect</h3>
+        <ul class="footer-links">
+          <li><a href="#">Resources and References</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Socials">
+        <h3 class="footer-title">Socials</h3>
+        <ul class="footer-links">
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">© <span id="year"></span> Veilscope. All rights reserved.</p>
+      <ul class="legal-links">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Status</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Global JS -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

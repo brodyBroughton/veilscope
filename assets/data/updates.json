@@ -1,0 +1,75 @@
+[
+  {
+    "title": "Reranker quality +2.7%",
+    "date": "2025-03-12",
+    "summary": "Improved retrieval scoring across finance tickers and sectors.",
+    "tags": ["Model", "Quality"],
+    "link": "#"
+  },
+  {
+    "title": "New Insights Dashboard",
+    "date": "2025-02-27",
+    "summary": "Compact KPIs, trend spark, and filterable filings.",
+    "tags": ["Product"],
+    "image": "assets/img/updates/dashboard.png",
+    "link": "#",
+    "featured": true
+  },
+  {
+    "title": "10-K parser speedup 1.6×",
+    "date": "2025-01-15",
+    "summary": "Parallel chunking + cache priming reduced median latency.",
+    "tags": ["Infra", "Performance"],
+    "link": "#"
+  },
+  {
+    "title": "10-K parser speedup 99999×",
+    "date": "2025-01-15",
+    "summary": "Parallel chunking + cache priming reduced median latency lorem ipsum deult the random words im adding for testing HAHAHAHHAAH lol ok im done.",
+    "tags": ["Infra", "Performance"],
+    "link": "#",
+    "featured": true
+  },
+  {
+    "title": "10-K parser speedup 1.6×",
+    "date": "2025-01-16",
+    "summary": "Parallel chunking + cache priming reduced median latency.",
+    "tags": ["Infra", "Performance"],
+    "link": "#"
+  },
+  {
+    "title": "10-K parser speedup 1.6×",
+    "date": "2025-01-17",
+    "summary": "Parallel chunking + cache priming reduced median latency.",
+    "tags": ["Infra", "Performance"],
+    "link": "#"
+  },
+  {
+    "title": "10-K parser speedup 1.6×",
+    "date": "2025-01-13",
+    "summary": "Parallel chunking + cache priming reduced median latency.",
+    "tags": ["Infra", "Performance"],
+    "link": "#"
+  },
+  {
+    "title": "10-K parser speedup 1.6×",
+    "date": "2025-01-15",
+    "summary": "Parallel chunking + cache priming reduced median latency.",
+    "tags": ["Infra", "Performance"],
+    "link": "#"
+  },
+  {
+    "title": "10-K parser speedup 1.6×",
+    "date": "2025-01-15",
+    "summary": "Parallel chunking + cache priming reduced median latency.",
+    "tags": ["Infra", "Performance"],
+    "link": "#"
+  },
+  {
+    "title": "10-K parser speedup 1.6×",
+    "date": "2025-01-15",
+    "summary": "Parallel chunking + cache priming reduced median latency.",
+    "tags": ["Infra", "Performance"],
+    "link": "#"
+  }
+]

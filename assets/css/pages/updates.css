@@ -1,0 +1,310 @@
+/* ==========================================================================
+   Project Updates page styles
+   - Mixed approach: up to 2 featured at top (side-by-side on wide)
+   - Uniform row heights via grid tracks; mobile stacks fluidly
+   ========================================================================== */
+
+:root{
+  --primary-bg: #F3F4F6;
+  --ink: #1F2937;
+  --ink-2: #374151;
+  --muted: #6B7280;
+  --ui: #E5E7EB;
+  --ring: rgba(59,130,246,.15);
+  --blue: #3B82F6;
+  --magenta: #EC4899;
+  --shadow: 0 8px 28px rgba(2, 8, 23, .08);
+  --radius-xl: 18px;
+
+  /* Desktop row/card sizing */
+  --card-h: 368px;
+  --card-h-featured: 368px;
+  --media-frac: .52;
+
+  /* Grid gaps */
+  --gap-lg: 28px;
+  --gap-md: 22px;
+  --gap-sm: 16px;
+}
+
+/* ---------- Page hero ---------- */
+.updates-hero{
+  background: linear-gradient(180deg,#fff,rgba(59,130,246,.06));
+  padding: clamp(72px, 9vw, 120px) 0 clamp(28px, 4.5vw, 48px);
+  margin-top: var(--nav-height);          /* match About & Learn pages */
+  border-bottom: 1px solid var(--ui);     /* subtle separation */
+}
+
+.updates-wrap{
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+.updates-hero h1{
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.updates-hero p{
+  color: var(--ink-2);
+  font-size: clamp(16px, 1.6vw, 18px);
+  margin: 0;
+}
+
+/* ---------- Toolbar ---------- */
+.updates-toolbar{
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: var(--gap-sm);
+  padding: 16px 20px;
+  max-width: 1160px;
+  margin: 0 auto 10px;
+}
+.updates-toolbar .search input{
+  width: 100%;
+  border: 1px solid var(--ui);
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--ink);
+}
+.updates-toolbar .search input:focus{
+  outline: none;
+  box-shadow: 0 0 0 6px var(--ring);
+}
+.chips{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.chip{
+  border: 1px solid var(--ui);
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-weight: 600;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: transform .08s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.chip[data-active="true"]{
+  background: rgba(236,72,153,.12);
+  border-color: rgba(236,72,153,.35);
+  color: var(--magenta);
+}
+.chip:active{ transform: translateY(1px); }
+
+.sort{
+  display: flex; align-items: center; gap: 8px;
+  justify-content: flex-end;
+  color: var(--muted);
+  font-weight: 600;
+}
+.sort select{
+  border: 1px solid var(--ui);
+  background:#fff;
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font: inherit;
+}
+
+/* ---------- Grid ---------- */
+.updates-section{ padding: 10px 0 64px; }
+.updates-grid{
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-inline: 20px;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gap-lg);
+  align-items: stretch;
+  grid-auto-rows: var(--card-h); /* consistent row height across a row */
+}
+
+/* Default spans (desktop) */
+.update-card{ grid-column: span 4; }
+.update-card--featured{ grid-column: span 8; }
+
+/* When there are 2 featured, make them sit side-by-side on wide viewports */
+@media (min-width: 1201px){
+  .updates-grid.has-two-featured .update-card--featured{
+    grid-column: span 6;
+  }
+}
+
+/* ---------- Card fills row height ---------- */
+.update-card{
+  background: #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+/* Media region fixed height from row (prevents AR rounding mismatches) */
+.update-media{
+  position: relative;
+  height: calc(var(--card-h) * var(--media-frac));
+  background: linear-gradient(180deg,#F8FAFC,#F3F4F6);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  color: #9CA3AF; font-weight: 700; font-size: 14px;
+}
+.update-card--featured .update-media{
+  height: calc(var(--card-h-featured) * var(--media-frac));
+}
+.update-media img{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent;
+}
+
+/* Badge overlay (for Featured) */
+.badge{
+  position: absolute;
+  top: 12px; left: 12px;
+  padding: 6px 10px;
+  font-size: 12px; font-weight: 800; letter-spacing: -.01em;
+  border-radius: 999px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(236,72,153,.3);
+}
+.badge-featured{ background: var(--magenta); }
+
+/* Body + divider lives here */
+.update-body{
+  display: flex; flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px 10px;
+  flex: 1 1 auto;
+  min-height: 0;
+  border-top: 1px solid #EEF2F7;
+}
+
+/* Meta, tags, etc. */
+.update-meta{
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 8px 10px;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+.update-tags{
+  display: inline-flex; gap: 6px; flex-wrap: wrap;
+}
+.update-tag{
+  display: inline-flex; align-items: center;
+  gap: 6px;
+  font-weight: 700; font-size: 12px;
+  color: var(--magenta);
+  background: rgba(236,72,153,.10);
+  border: 1px solid rgba(236,72,153,.32);
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+/* Clamp text, maintain responsive overrides */
+.update-title,
+.update-summary {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  --lh: 1.25;
+  --lc: 2;
+  line-height: var(--lh);
+  max-height: calc(var(--lc) * var(--lh) * 1em);
+  line-clamp: var(--lc);
+  -webkit-line-clamp: var(--lc);
+}
+
+.update-title {
+  margin: 2px 0 0;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  /* clamp settings inherited from the group */
+}
+.update-card--featured .update-title {
+  font-size: 20px;
+}
+
+.update-summary {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 14px;
+  /* override clamp for summary specifically */
+  --lc: 2;
+  --lh: 1.45;
+}
+.update-card--featured .update-summary {
+  /* Let featured summaries have more lines (3) if needed */
+  --lc: 3;
+}
+
+/* Actions */
+.update-actions{
+  margin-top: auto;
+  padding: 0 16px 14px;
+  display: flex; gap: 12px; align-items: center;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.update-actions a{
+  color: var(--blue); font-weight: 800; text-decoration: none;
+}
+.update-actions a:hover{ text-decoration: underline; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1200px){
+  .updates-grid{ gap: var(--gap-md) }
+  .update-card{ grid-column: span 6; }
+  .update-card--featured{ grid-column: span 12; }
+}
+
+/* Responsive: at smaller widths, let titles/summaries be longer */
+@media (max-width: 720px) {
+  .update-title {
+    --lc: 3;
+  }
+  .update-summary {
+    --lc: 3;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .chip{ transition: none; }
+}
+
+/* Screen reader */
+.sr-only{
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* Fallback styling for missing images */
+.update-media.is-empty {
+  background: linear-gradient(180deg, #F8FAFC, #F3F4F6);
+}
+.update-media.is-empty::after {
+  content: 'No image';
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  color: #9CA3AF; font-weight: 700; font-size: 14px;
+}

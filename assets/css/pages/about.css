@@ -1,0 +1,215 @@
+/* ==========================================================================
+   About Us — page-specific styles
+   Uses global tokens from app.css and mirrors the Updates hero styles
+   ========================================================================== */
+
+/* Local helpers (fallbacks only—will defer to app.css tokens if present) */
+:root{
+  --_container: 1160px;
+  --_gap-lg: 28px;
+  --_gap-md: 20px;
+  --_gap-sm: 14px;
+
+  /* gentle secondary text if not provided globally */
+  --_ink-2: #374151;
+}
+
+/* Shared container width + side padding */
+.about-wrap,
+.about-hero .container,
+.about-why .container,
+.team .container{
+  max-width: var(--_container);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* -------------------- HERO (match Updates) -------------------- */
+/* Same gradient + vertical rhythm; add top margin for fixed header */
+.about-hero{
+  background: linear-gradient(180deg,#fff,rgba(59,130,246,.06));
+  padding: clamp(72px, 9vw, 120px) 0 clamp(28px, 4.5vw, 48px); /* mirrors .updates-hero */
+  margin-top: var(--nav-height); /* clears fixed header from app.css */
+}
+
+/* Title and subhead mirror Updates’ scale */
+.about-hero h1{
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-secondary);
+  margin: 0 0 12px;
+}
+.about-hero .subhead{
+  color: var(--_ink-2);
+  font-size: clamp(16px, 1.6vw, 18px);
+  margin: 0;
+}
+
+/* -------------------- WHY / SNAPSHOT -------------------- */
+.about-why{
+  padding: 36px 0 48px;
+}
+.why-grid{
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: var(--_gap-lg);
+}
+.why-col p{
+  color: var(--_ink-2);
+  margin: 0 0 12px;
+}
+.check-list{
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: 12px 0 0;
+}
+.check-list li{
+  list-style: none;
+  position: relative;
+  padding-left: 22px;
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+.check-list li::before{
+  content: "✓";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--color-accent);
+  font-weight: 800;
+}
+
+/* Right-side card */
+.card{
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(2,8,23,.08);
+  padding: 18px 18px 16px;
+}
+.card-title{
+  margin: 0 0 10px;
+  color: var(--color-secondary);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+}
+.steps{
+  margin: 0 0 10px 20px;
+  color: var(--_ink-2);
+}
+.meta.note{
+  font-size: 13px;
+  color: #6B7280;
+}
+
+/* -------------------- TEAM -------------------- */
+.team{
+  padding: 12px 0 72px;
+  background: linear-gradient(0deg, #fff, rgba(236,72,153,.04));
+  border-top: 1px solid #E5E7EB;
+}
+.team h2{
+  margin: 0 0 18px;
+  font-size: clamp(22px, 2.6vw, 28px);
+  color: var(--color-secondary);
+  letter-spacing: -.01em;
+}
+.team-group{
+  margin-top: 18px;
+}
+.group-title{
+  margin: 0 0 14px;
+  color: var(--_ink-2);
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/* Responsive grid for team cards (3-up on desktop) */
+.team-grid{
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--_gap-lg);
+}
+.team-grid .team-card{ grid-column: span 4; }
+.sponsor-grid .team-card{ grid-column: span 4; }
+
+/* Team card */
+.team-card{
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(2,8,23,.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* Portrait headshots: 4:5 ratio + cover for pleasant crop */
+.team-media{
+  position: relative;
+  aspect-ratio: 4 / 5;                               /* keeps a 4:5 box */
+  background: #F3F4F6;
+  overflow: hidden;
+}
+.team-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                                 /* fill without distortion */
+  display: block;
+}
+
+/* Card body */
+.team-body{
+  padding: 14px 16px 16px;
+  display: grid;
+  gap: 6px;
+}
+.name{
+  margin: 0;
+  color: var(--color-secondary);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -.01em;
+}
+.role{
+  color: var(--color-accent-2);
+  font-weight: 800;
+  font-size: 14px;
+}
+.bio{
+  margin: 2px 0 2px;
+  color: var(--_ink-2);
+  font-size: 14px;
+}
+.tags{
+  display: inline-flex;
+  gap: 8px;
+  padding: 0;
+  margin: 4px 0 0;
+}
+.tags li{
+  list-style: none;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-accent-2);
+  background: rgba(236,72,153,.10);
+  border: 1px solid rgba(236,72,153,.32);
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 1100px){
+  .why-grid{ grid-template-columns: 1fr; }
+  .team-grid .team-card,
+  .sponsor-grid .team-card{ grid-column: span 6; }
+}
+@media (max-width: 680px){
+  .team-grid .team-card,
+  .sponsor-grid .team-card{ grid-column: span 12; }
+}

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Veilscope</title>
+  <!-- Classic ICO (browsers autoload /favicon.ico) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  
+  <!-- PNG favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icons/favicon-16x16.png">
+  
+  <!-- iOS / iPadOS home-screen icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png">
+  
+  <!-- PWA / Android -->
+  <link rel="manifest" href="assets/img/icons/site.webmanifest">
+  
+  <!-- Optional UI colors -->
+  <meta name="theme-color" content="#F3F4F6">
+  <meta name="msapplication-TileColor" content="#F3F4F6">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-hidden="true" />
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="/"><img class="brand-logo" src="assets/img/logos/veilscope-logo-dark.png" alt="Veilscope" /></a>
+      <nav class="primary-nav">
+        <ul class="nav-list">
+          <li><a href="learn-more.html">Learn More</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="updates.html">Project Updates</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-login" href="https://app.veilscope.com/login">Log In</a>
+        <a class="btn btn-get-started" href="https://app.veilscope.com/signup">Get Started</a>
+      </div>
+      <label class="hamburger" for="nav-toggle" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </label>
+    </div>
+  </header>
+
+  <aside id="mobile-menu" class="mobile-drawer" aria-label="Mobile navigation">
+    <nav class="drawer-nav">
+      <a class="drawer-link" href="learn-more.html">Learn More</a>
+      <a class="drawer-link" href="about.html">About Us</a>
+      <a class="drawer-link" href="updates.html">Project Updates</a>
+    </nav>
+    <div class="drawer-actions">
+      <a class="btn btn-get-started" href="https://app.veilscope.com/signup">Get Started</a>
+      <a class="btn btn-login" href="https://app.veilscope.com/login">Log In</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>Questions, partnerships, or press — we’d love to hear from you.</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container two-col">
+        <form id="contact-form" class="form-card" action="#" method="post" novalidate>
+          <div class="form-row">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="form-row">
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic" required>
+              <option value="">Choose a topic…</option>
+              <option>General</option>
+              <option>Partnership</option>
+              <option>Press</option>
+              <option>Support</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+          <button class="btn btn-get-started" type="submit">Send message</button>
+          <p id="contact-msg" class="form-msg" aria-live="polite"></p>
+        </form>
+
+        <div class="contact-side">
+          <div class="card-placeholder">Map / Office / Social</div>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> hello@veilscope.com</li>
+            <li><strong>Press:</strong> press@veilscope.com</li>
+            <li><strong>Careers:</strong> careers@veilscope.com</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer-leadin" aria-hidden="true"></div>
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <section class="footer-brand">
+        <a class="brand brand--footer" href="/"><img class="brand-logo" src="assets/img/logos/veilscope-logo-light.png" alt="Veilscope" /></a>
+        <p class="footer-tagline">AI insights from public financial filings.</p>
+        <form class="newsletter" action="#" method="post" novalidate>
+          <label class="newsletter-label" for="newsletter-email">Project Updates</label>
+          <div class="newsletter-row">
+            <input id="newsletter-email" name="email" type="email" placeholder="you@example.com" required />
+            <button class="btn btn-get-started" type="submit">Subscribe</button>
+          </div>
+          <p class="newsletter-help">By signing up, you agree to receive emails.</p>
+          <p class="newsletter-msg" aria-live="polite"></p>
+        </form>
+      </section>
+      <nav class="footer-col" aria-label="Explore">
+        <h3 class="footer-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="learn-more.html">Learn More</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="updates.html">Project Updates</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Connect">
+        <h3 class="footer-title">Connect</h3>
+        <ul class="footer-links">
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Socials">
+        <h3 class="footer-title">Socials</h3>
+        <ul class="footer-links">
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Veilscope. All rights reserved.</p>
+      <ul class="legal-links">
+        <li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Status</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

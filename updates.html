@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Updates — Veilscope</title>
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/img/icons/site.webmanifest">
+  <meta name="theme-color" content="#F3F4F6">
+  <meta name="msapplication-TileColor" content="#F3F4F6">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/css/pages/updates.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-hidden="true" />
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="/"><img class="brand-logo" src="assets/img/logos/veilscope-logo-dark.png" alt="Veilscope" /></a>
+
+      <nav class="primary-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="learn-more.html">Learn More</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="updates.html" aria-current="page">Project Updates</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-login" href="https://app.veilscope.com/login">Log In</a>
+        <a class="btn btn-get-started" href="https://app.veilscope.com/signup">Get Started</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <label class="hamburger" for="nav-toggle" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </label>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <aside id="mobile-menu" class="mobile-drawer" aria-label="Mobile navigation">
+    <nav class="drawer-nav">
+      <a class="drawer-link" href="learn-more.html">Learn More</a>
+      <a class="drawer-link" href="about.html">About Us</a>
+      <a class="drawer-link" href="updates.html" aria-current="page">Project Updates</a>
+    </nav>
+    <div class="drawer-actions">
+      <a class="btn btn-get-started" href="https://app.veilscope.com/signup">Get Started</a>
+      <a class="btn btn-login" href="https://app.veilscope.com/login">Log In</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <!-- Page hero -->
+    <section class="updates-hero" aria-labelledby="updates-title">
+      <div class="updates-wrap">
+        <h1 id="updates-title">Project Updates</h1>
+        <p>Release notes, model improvements, and product changes from the Veilscope team.</p>
+      </div>
+    </section>
+
+    <!-- Toolbar: search / tags / sort -->
+    <div class="updates-toolbar" role="region" aria-label="Updates filters">
+      <div class="search">
+        <label class="sr-only" for="updates-search">Search updates</label>
+        <input id="updates-search" type="search" placeholder="Search updates…" autocomplete="off" />
+      </div>
+
+      <!-- Updated: role="group" + aria-pressed -->
+      <div class="chips" role="group" aria-label="Filter by tag">
+        <button class="chip" data-tag="All" aria-pressed="true">All</button>
+        <button class="chip" data-tag="Product" aria-pressed="false">Product</button>
+        <button class="chip" data-tag="Model" aria-pressed="false">Model</button>
+        <button class="chip" data-tag="Infra" aria-pressed="false">Infra</button>
+        <button class="chip" data-tag="Performance" aria-pressed="false">Performance</button>
+      </div>
+
+      <div class="sort">
+        <label for="sort-select">Sort</label>
+        <select id="sort-select" name="sort">
+          <option value="featured" selected>Featured</option>
+          <option value="date_desc">Newest first</option>
+          <option value="date_asc">Oldest first</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Updates grid (rendered by JS from assets/data/updates.json) -->
+    <section class="updates-section" aria-labelledby="updates-grid-title">
+      <div class="updates-wrap">
+        <h2 id="updates-grid-title" class="sr-only">Latest updates</h2>
+        <div class="updates-grid"><!-- updates.js will inject cards here --></div>
+
+        <!-- Optional future button -->
+        <!-- <div class="load-more-wrap"><button class="btn btn-login load-more">Load more</button></div> -->
+      </div>
+    </section>
+  </main>
+
+  <div class="footer-leadin" aria-hidden="true"></div>
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <section class="footer-brand">
+        <a class="brand brand--footer" href="/"><img class="brand-logo" src="assets/img/logos/veilscope-logo-light.png" alt="Veilscope" /></a>
+        <p class="footer-tagline">AI insights from public financial filings.</p>
+
+        <form class="newsletter" action="#" method="post" novalidate>
+          <label class="newsletter-label" for="newsletter-email">Project Updates</label>
+          <div class="newsletter-row">
+            <input id="newsletter-email" name="email" type="email" placeholder="you@example.com" required />
+            <button class="btn btn-get-started" type="submit">Subscribe</button>
+          </div>
+          <p class="newsletter-help">By signing up, you agree to receive emails.</p>
+          <p class="newsletter-msg" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <nav class="footer-col" aria-label="Explore">
+        <h3 class="footer-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="learn-more.html">Learn More</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Connect">
+        <h3 class="footer-title">Connect</h3>
+        <ul class="footer-links">
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Socials">
+        <h3 class="footer-title">Socials</h3>
+        <ul class="footer-links">
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Veilscope. All rights reserved.</p>
+      <ul class="legal-links">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Status</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts: global first, then page script -->
+  <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/updates.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Veilscope — App Preview</title>
+  <meta name="color-scheme" content="light dark" />
+
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <link rel="stylesheet" href="assets/css/pages/webapp.css" />
+</head>
+<body class="webapp">
+  <!-- ===== Top Bar ===== -->
+  <header class="app-topbar" role="banner">
+    <!-- LEFT cluster: hamburger + brand -->
+    <div class="topbar-left">
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open navigation" aria-controls="appDrawer" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <a class="app-brand" href="#" aria-label="Veilscope">
+        <img class="logo logo-dark" src="assets/img/logos/veilscope-logo-dark.png" alt="Veilscope" />
+        <img class="logo logo-light" src="assets/img/logos/veilscope-logo-light.png" alt="Veilscope" />
+      </a>
+    </div>
+
+    <!-- CENTER cluster: tabs -->
+    <div class="tabbar" role="tablist" aria-label="Open items">
+      <div class="tabitem is-active">
+        <button role="tab" aria-selected="true" class="tab" data-key="AAPL" id="tab-AAPL">AAPL 10-K</button>
+        <button class="tab-close" aria-label="Close AAPL 10-K" data-key="AAPL" title="Close">×</button>
+      </div>
+      <div class="tabitem">
+        <button role="tab" aria-selected="false" class="tab" data-key="MSFT" id="tab-MSFT">MSFT 10-Q</button>
+        <button class="tab-close" aria-label="Close MSFT 10-Q" data-key="MSFT" title="Close">×</button>
+      </div>
+      <div class="tabitem">
+        <button role="tab" aria-selected="false" class="tab" data-key="SAMPLE" id="tab-SAMPLE">Sample Scorecard</button>
+        <button class="tab-close" aria-label="Close Sample Scorecard" data-key="SAMPLE" title="Close">×</button>
+      </div>
+    </div>
+
+    <!-- RIGHT cluster: settings, notifications, profile -->
+    <div class="topbar-actions">
+      <!-- Settings -->
+      <span class="action">
+        <button class="icon-btn" id="openSettings" aria-haspopup="dialog" aria-controls="settingsMenu" aria-label="Open settings">
+          <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.6H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09A1.65 1.65 0 0 0 15 4.6h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09A1.65 1.65 0 0 0 19.4 15z"></path>
+          </svg>
+        </button>
+        <div class="menu-popover" id="settingsMenu" role="dialog" aria-modal="false" aria-label="Settings" hidden>
+          <div class="menu-header">
+            <strong>Settings</strong>
+            <button class="menu-close" data-close="#settingsMenu" aria-label="Close">✕</button>
+          </div>
+          <div class="menu-body">
+            <fieldset class="field">
+              <legend>Theme</legend>
+              <label><input type="radio" name="theme" value="system" checked> Follow system</label>
+              <label><input type="radio" name="theme" value="light"> Light</label>
+              <label><input type="radio" name="theme" value="dark"> Dark</label>
+            </fieldset>
+          </div>
+        </div>
+      </span>
+
+      <!-- Notifications -->
+      <span class="action">
+        <button class="icon-btn" id="notifBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="notifPopover" aria-label="Open notifications">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M6.5 8a5.5 5.5 0 0 1 11 0c0 1.9.5 3.2 1.1 4.2.4.7.9 1.4.9 2.3v.5H4v-.5c0-.9.5-1.6.9-2.3C6 11.2 6.5 9.9 6.5 8z"/>
+            <path d="M14 19a2 2 0 0 1-4 0"/>
+          </svg>
+        </button>
+        <div class="popover" id="notifPopover" role="dialog" aria-label="Notifications" hidden>
+          <div class="popover-card">
+            <strong>Notifications</strong>
+            <p>No new notifications.</p>
+            <a href="#" class="mini-link">View all</a>
+          </div>
+        </div>
+      </span>
+
+      <!-- Profile -->
+      <span class="action">
+        <button class="avatar" id="profileBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="profilePopover" aria-label="Account"></button>
+        <div class="popover" id="profilePopover" role="dialog" aria-label="Profile" hidden>
+          <div class="popover-card profile-card">
+            <img class="profile-photo" src="https://placehold.co/96x96" alt="" />
+            <div class="profile-meta">
+              <strong>John Smith</strong>
+              <span class="profile-email">johnathan.smith-really-long-email.alias+example_2025@verylongdomain-name-for-demo.example.com</span>
+              <a href="#" class="mini-link">Manage account</a>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+  </header>
+
+  <!-- ===== Drawer + Scrim ===== -->
+  <div class="scrim" id="scrim" hidden></div>
+
+  <aside id="appDrawer" class="app-drawer" role="complementary" aria-label="Explorer" aria-hidden="true" tabindex="-1">
+    <div class="drawer-head">
+      <div class="search">
+        <input id="tickerSearch" type="search" inputmode="search" placeholder="Search Ticker…" aria-label="Search ticker" />
+        <button class="icon-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.3-4.3M10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="drawer-actions">
+        <button class="mini-btn" id="newFolderBtn" aria-label="New Folder">New Folder</button>
+        <button class="mini-btn" aria-label="New Analysis">New Analysis</button>
+      </div>
+    </div>
+
+    <nav class="tree" aria-label="Saved items">
+      <details open>
+        <summary>Portfolio</summary>
+        <ul id="portfolioList">
+          <li>
+            <details open>
+              <summary>Tech</summary>
+              <ul>
+                <li><a href="#" data-key="AAPL">AAPL — 10-K 2024</a></li>
+                <li><a href="#" data-key="MSFT">MSFT — 10-Q 2025-Q1</a></li>
+                <li><a href="#" data-key="NVDA">NVDA — 10-K 2024</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary>Energy</summary>
+              <ul>
+                <li><a href="#" data-key="XOM">XOM — 10-K 2024</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </details>
+    </nav>
+  </aside>
+
+  <!-- ===== Workbench ===== -->
+  <div class="workbench">
+    <main class="pane-main" id="content" tabindex="-1">
+      <h1 class="company" id="companyName">Company Name</h1>
+      <p class="desc" id="companyDesc">Description</p>
+
+      <div class="score">Score: <strong id="companyScore">0/100</strong></div>
+
+      <section aria-labelledby="factors-title" class="factors">
+        <h2 id="factors-title" class="sr-only">Risk Factors</h2>
+        <ul class="factor-list" id="factorList" role="list"></ul>
+      </section>
+    </main>
+
+    <aside class="pane-side" aria-label="Charts">
+      <h2 class="charts-title">Charts</h2>
+      <div class="skeleton chart"></div>
+      <div class="skeleton chart"></div>
+    </aside>
+  </div>
+
+  <!-- ===== Status Bar ===== -->
+  <footer class="statusbar" role="contentinfo">
+    <div class="status-item">EDGAR: <span class="status-dot ok"></span> reachable</div>
+    <div class="status-item">Rate limit: —</div>
+    <div class="status-item">Last sync: —</div>
+  </footer>
+
+  <!-- ===== Settings Dialog (if used) ===== -->
+  <div class="modal" id="settingsDialog" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" hidden>
+    <div class="modal-card" role="document">
+      <header class="modal-head">
+        <h2 id="settingsTitle">Settings</h2>
+        <button class="icon-btn close" id="closeSettings" aria-label="Close settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+
+      <div class="modal-body">
+        <fieldset class="theme-group">
+          <legend>Theme</legend>
+          <label><input type="radio" name="theme" value="system" checked> Follow system</label>
+          <label><input type="radio" name="theme" value="light"> Light</label>
+          <label><input type="radio" name="theme" value="dark"> Dark</label>
+        </fieldset>
+      </div>
+
+      <footer class="modal-foot">
+        <button class="btn btn-secondary" id="cancelSettings">Cancel</button>
+        <button class="btn btn-get-started" id="saveSettings">Save</button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="assets/js/webapp.js" defer></script>
+</body>
+</html>
