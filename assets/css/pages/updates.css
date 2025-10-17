@@ -97,7 +97,7 @@
   border-color: rgba(236,72,153,.35);
   color: var(--magenta);
 }
-/* NEW: also support ARIA pressed for visual active state */
+/* also support ARIA pressed for visual active state */
 .chip[aria-pressed="true"]{
   background: rgba(236,72,153,.12);
   border-color: rgba(236,72,153,.35);
@@ -282,24 +282,47 @@
   .update-card--featured{ grid-column: span 12; }
 }
 
-/* Responsive: at smaller widths, let titles/summaries be longer */
+/* =======================
+   MOBILE-ONLY FIXES
+   ======================= */
 @media (max-width: 720px) {
-  /* STACK THE TOOLBAR NEATLY ON MOBILE (sorting fix) */
-  .updates-toolbar{
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 12px 20px 8px;
+
+  /* Keep sizes predictable on very small screens */
+  .updates-section{
+    -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
   }
-  .updates-toolbar > .search,
-  .updates-toolbar > .chips,
-  .updates-toolbar > .sort{ min-width: 0; } /* prevent overflow */
 
-  .chips{ justify-content: flex-start; }     /* chips align left on mobile */
-  .sort{ justify-content: flex-start; }      /* sort aligns left on mobile */
-  .sort select{ width: 100%; }               /* full-width select on mobile */
+  /* Let rows and cards grow with content */
+  .updates-grid{
+    gap: var(--gap-sm);
+    grid-auto-rows: auto;          /* was fixed px height */
+  }
+  .update-card{
+    height: auto;                  /* was height:100% of the fixed row */
+  }
 
-  .update-title { --lc: 3; }
-  .update-summary { --lc: 3; }
+  /* Make media responsive without eating a fixed chunk of card height */
+  .update-media{
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+  .update-card--featured .update-media{
+    aspect-ratio: 21 / 9;
+  }
+
+  /* Allow a little more text on phones */
+  .update-title{ --lc: 3; }
+  .update-summary{ --lc: 3; }
+
+  /* On WebKit (iOS), rely on -webkit-line-clamp and remove max-height
+     to avoid the last-line "cropped" look from rounding. */
+  @supports (-webkit-line-clamp: 1){
+    .update-title,
+    .update-summary{
+      max-height: none;
+    }
+  }
 }
 
 /* Reduced motion */
