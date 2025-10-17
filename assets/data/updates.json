@@ -1,75 +1,59 @@
-[
-  {
-    "title": "Reranker quality +2.7%",
-    "date": "2025-03-12",
-    "summary": "Improved retrieval scoring across finance tickers and sectors.",
-    "tags": ["Model", "Quality"],
-    "link": "#"
-  },
-  {
-    "title": "New Insights Dashboard",
-    "date": "2025-02-27",
-    "summary": "Compact KPIs, trend spark, and filterable filings.",
-    "tags": ["Product"],
-    "image": "assets/img/updates/dashboard.png",
-    "link": "#",
-    "featured": true
-  },
-  {
-    "title": "10-K parser speedup 1.6×",
-    "date": "2025-01-15",
-    "summary": "Parallel chunking + cache priming reduced median latency.",
-    "tags": ["Infra", "Performance"],
-    "link": "#"
-  },
-  {
-    "title": "10-K parser speedup 99999×",
-    "date": "2025-01-15",
-    "summary": "Parallel chunking + cache priming reduced median latency lorem ipsum deult the random words im adding for testing HAHAHAHHAAH lol ok im done.",
-    "tags": ["Infra", "Performance"],
-    "link": "#",
-    "featured": true
-  },
-  {
-    "title": "10-K parser speedup 1.6×",
-    "date": "2025-01-16",
-    "summary": "Parallel chunking + cache priming reduced median latency.",
-    "tags": ["Infra", "Performance"],
-    "link": "#"
-  },
-  {
-    "title": "10-K parser speedup 1.6×",
-    "date": "2025-01-17",
-    "summary": "Parallel chunking + cache priming reduced median latency.",
-    "tags": ["Infra", "Performance"],
-    "link": "#"
-  },
-  {
-    "title": "10-K parser speedup 1.6×",
-    "date": "2025-01-13",
-    "summary": "Parallel chunking + cache priming reduced median latency.",
-    "tags": ["Infra", "Performance"],
-    "link": "#"
-  },
-  {
-    "title": "10-K parser speedup 1.6×",
-    "date": "2025-01-15",
-    "summary": "Parallel chunking + cache priming reduced median latency.",
-    "tags": ["Infra", "Performance"],
-    "link": "#"
-  },
-  {
-    "title": "10-K parser speedup 1.6×",
-    "date": "2025-01-15",
-    "summary": "Parallel chunking + cache priming reduced median latency.",
-    "tags": ["Infra", "Performance"],
-    "link": "#"
-  },
-  {
-    "title": "10-K parser speedup 1.6×",
-    "date": "2025-01-15",
-    "summary": "Parallel chunking + cache priming reduced median latency.",
-    "tags": ["Infra", "Performance"],
-    "link": "#"
-  }
-]
+{
+  "updates": [
+    {
+      "slug": "week-1-progress-report-brody",
+      "title": "Week 1 Progress Report - Brody",
+      "summary": "Expirimenting with Figma sites for website design and deployment.",
+      "date": "2025-10-10",
+      "image": "assets/img/updates/q3-overview.jpg",
+      "imageAlt": "Graph showing Q3 revenue growth",
+      "tags": ["Weekly Report", "Brody"],
+      "featured": false,
+      "content": "<p>In Q3 we achieved a 12% year-on-year revenue increase, driven by stronger product adoption and improved retention. However, cost pressures from supply chain disruptions and inflationary inputs are beginning to tighten margins.</p><h2>Highlights</h2><ul><li>Revenue up 12%</li><li>Gross margin narrowed by 1.5%</li><li>CapEx increased by 8%</li></ul><p>Going forward, we plan to mitigate supply chain risk by diversifying suppliers and locking in pricing on key raw materials.</p>"
+    },
+    {
+      "slug": "week-1-progress-report-jacob",
+      "title": "Week 1 Progress Report - Jacob",
+      "summary": "Jacob's progress report that he needs to write.",
+      "date": "2025-10-10",
+      "image": "assets/img/updates/product-launch.jpg",
+      "imageAlt": "Prototype of new AI scanner",
+      "tags": ["Weekly Report", "Jacob"],
+      "featured": false,
+      "content": "<p>We are excited to release the beta version of our AI-powered scanner tool. In this beta, users can enter a company ticker and receive a risk score with supporting highlights.</p><h2>Features</h2><ul><li>Risk breakdown by categories (e.g. liquidity, governance, market)</li><li>Sentiment insights from MD&A text</li><li>Historical alerts and anomaly detection</li></ul><p>Feedback is encouraged; we plan to iterate quickly and expand capabilities over the coming months.</p>"
+    },
+    {
+      "slug": "week-2-progress-report-brody",
+      "title": "Week 2 Progress Report - Brody",
+      "summary": "Brody's progress report that he needs to write.",
+      "date": "2025-10-17",
+      "image": "assets/img/updates/product-launch.jpg",
+      "imageAlt": "Prototype of new AI scanner",
+      "tags": ["Weekly Report", "Brody"],
+      "featured": true,
+      "content": "<p>We are excited to release the beta version of our AI-powered scanner tool. In this beta, users can enter a company ticker and receive a risk score with supporting highlights.</p><h2>Features</h2><ul><li>Risk breakdown by categories (e.g. liquidity, governance, market)</li><li>Sentiment insights from MD&A text</li><li>Historical alerts and anomaly detection</li></ul><p>Feedback is encouraged; we plan to iterate quickly and expand capabilities over the coming months.</p>"
+    },
+    {
+      "slug": "week-2-progress-report-jacob",
+      "title": "Week 2 Progress Report - Jacob",
+      "summary": "Jacob's progress report that he needs to write.",
+      "date": "2025-10-17",
+      "image": "assets/img/updates/product-launch.jpg",
+      "imageAlt": "Prototype of new AI scanner",
+      "tags": ["Weekly Report", "Jacob"],
+      "featured": true,
+      "content": "<p>We are excited to release the beta version of our AI-powered scanner tool. In this beta, users can enter a company ticker and receive a risk score with supporting highlights.</p><h2>Features</h2><ul><li>Risk breakdown by categories (e.g. liquidity, governance, market)</li><li>Sentiment insights from MD&A text</li><li>Historical alerts and anomaly detection</li></ul><p>Feedback is encouraged; we plan to iterate quickly and expand capabilities over the coming months.</p>"
+    },
+    {
+      "slug": "report-card-template",
+      "title": "Template for Report Cards",
+      "summary": "This is a temporary template for report cards.",
+      "date": "2025-10-17",
+      "image": "assets/img/updates/nonexistent-image.jpg",
+      "imageAlt": "Placeholder Image",
+      "tags": ["Weekly Report"],
+      "featured": false,
+      "content": "<p>This is a temporary template for report cards.</p>"
+    }
+  ]
+}

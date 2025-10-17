@@ -1,10 +1,8 @@
 /* ==========================================================================
    Project Updates page styles
-   - Mixed approach: up to 2 featured at top (side-by-side on wide)
-   - Uniform row heights via grid tracks; mobile stacks fluidly
    ========================================================================== */
 
-:root{
+:root {
   --primary-bg: #F3F4F6;
   --ink: #1F2937;
   --ink-2: #374151;
@@ -16,45 +14,42 @@
   --shadow: 0 8px 28px rgba(2, 8, 23, .08);
   --radius-xl: 18px;
 
-  /* Desktop row/card sizing */
   --card-h: 368px;
   --card-h-featured: 368px;
   --media-frac: .52;
 
-  /* Grid gaps */
   --gap-lg: 28px;
   --gap-md: 22px;
   --gap-sm: 16px;
 }
 
-/* ---------- Page hero ---------- */
-.updates-hero{
-  background: linear-gradient(180deg,#fff,rgba(59,130,246,.06));
+/* Hero section */
+.updates-hero {
+  background: linear-gradient(180deg, #fff, rgba(59,130,246,.06));
   padding: clamp(72px, 9vw, 120px) 0 clamp(28px, 4.5vw, 48px);
-  margin-top: var(--nav-height);          /* match About & Learn pages */
-  border-bottom: 1px solid var(--ui);     /* subtle separation */
+  margin-top: var(--nav-height);
+  border-bottom: 1px solid var(--ui);
 }
-
-.updates-wrap{
+.updates-wrap {
   max-width: 1160px;
   margin-inline: auto;
   padding-inline: 20px;
 }
-.updates-hero h1{
+.updates-hero h1 {
   font-size: clamp(28px, 3.6vw, 44px);
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--ink);
   margin: 0 0 12px;
 }
-.updates-hero p{
+.updates-hero p {
   color: var(--ink-2);
   font-size: clamp(16px, 1.6vw, 18px);
   margin: 0;
 }
 
-/* ---------- Toolbar ---------- */
-.updates-toolbar{
+/* Toolbar */
+.updates-toolbar {
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
@@ -63,7 +58,7 @@
   max-width: 1160px;
   margin: 0 auto 10px;
 }
-.updates-toolbar .search input{
+.updates-toolbar .search input {
   width: 100%;
   border: 1px solid var(--ui);
   background: #fff;
@@ -72,17 +67,17 @@
   font: inherit;
   color: var(--ink);
 }
-.updates-toolbar .search input:focus{
+.updates-toolbar .search input:focus {
   outline: none;
   box-shadow: 0 0 0 6px var(--ring);
 }
-.chips{
+.chips {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
-.chip{
+.chip {
   border: 1px solid var(--ui);
   background: #fff;
   border-radius: 999px;
@@ -92,37 +87,34 @@
   cursor: pointer;
   transition: transform .08s ease, background .2s ease, color .2s ease, border-color .2s ease;
 }
-.chip[data-active="true"]{
-  background: rgba(236,72,153,.12);
-  border-color: rgba(236,72,153,.35);
-  color: var(--magenta);
-}
-/* also support ARIA pressed for visual active state */
+.chip[data-active="true"],
 .chip[aria-pressed="true"]{
   background: rgba(236,72,153,.12);
   border-color: rgba(236,72,153,.35);
   color: var(--magenta);
 }
-.chip:active{ transform: translateY(1px); }
+.chip:active { transform: translateY(1px); }
 
-.sort{
-  display: flex; align-items: center; gap: 8px;
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   justify-content: flex-end;
   color: var(--muted);
   font-weight: 600;
 }
-.sort select{
+.sort select {
   border: 1px solid var(--ui);
-  background:#fff;
+  background: #fff;
   color: var(--ink);
   border-radius: 10px;
   padding: 8px 12px;
   font: inherit;
 }
 
-/* ---------- Grid ---------- */
-.updates-section{ padding: 10px 0 64px; }
-.updates-grid{
+/* Grid for cards */
+.updates-section { padding: 10px 0 64px; }
+.updates-grid {
   max-width: 1160px;
   margin: 0 auto;
   padding-inline: 20px;
@@ -130,241 +122,146 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: var(--gap-lg);
   align-items: stretch;
-  grid-auto-rows: var(--card-h); /* consistent row height across a row */
+  grid-auto-rows: var(--card-h);
 }
 
-/* Default spans (desktop) */
-.update-card{ grid-column: span 4; }
-.update-card--featured{ grid-column: span 8; }
+.update-card { grid-column: span 4; }
+.update-card--featured { grid-column: span 8; }
 
-/* When there are 2 featured, make them sit side-by-side on wide viewports */
-@media (min-width: 1201px){
-  .updates-grid.has-two-featured .update-card--featured{
-    grid-column: span 6;
-  }
+@media (min-width: 1201px) {
+  .updates-grid.has-two-featured .update-card--featured { grid-column: span 6; }
 }
 
-/* ---------- Card fills row height ---------- */
-.update-card{
+/* Card */
+.update-card {
   background: #fff;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
   overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 0;
-  box-sizing: border-box;
+  display: flex; flex-direction: column;
+  height: 100%; min-height: 0; box-sizing: border-box;
 }
 
-/* Media region fixed height from row (prevents AR rounding mismatches) */
-.update-media{
+/* Media area */
+.update-media {
   position: relative;
   height: calc(var(--card-h) * var(--media-frac));
-  background: linear-gradient(180deg,#F8FAFC,#F3F4F6);
+  background: linear-gradient(180deg, #F8FAFC, #F3F4F6);
   overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-  color: #9CA3AF; font-weight: 700; font-size: 14px;
 }
-.update-card--featured .update-media{
-  height: calc(var(--card-h-featured) * var(--media-frac));
-}
-.update-media img{
+
+/* IMPORTANT: hide browser alt-text fallback if an image fails */
+.update-media img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  border: 0 !important;
-  outline: none !important;
-  box-shadow: none !important;
+  border: 0 !important; outline: none !important; box-shadow: none !important;
   background: transparent;
+  /* visually suppress any alt-text fallback */
+  color: transparent; font-size: 0; text-indent: -9999px;
 }
 
-/* Badge overlay (for Featured) */
-.badge{
-  position: absolute;
-  top: 12px; left: 12px;
-  padding: 6px 10px;
-  font-size: 12px; font-weight: 800; letter-spacing: -.01em;
-  border-radius: 999px;
-  color: #fff;
+/* If we mark the media as empty, keep it visual-only with no text */
+.update-media.is-empty { background: linear-gradient(180deg,#F8FAFC,#F3F4F6); }
+.update-media .is-empty { width:100%; height:100%; font-size:0; color:transparent; }
+
+/* Badge */
+.badge {
+  position: absolute; top: 12px; left: 12px;
+  padding: 6px 10px; font-size: 12px; font-weight: 800; letter-spacing: .02em;
+  border-radius: 999px; color: #fff; background: var(--magenta);
   box-shadow: 0 4px 12px rgba(236,72,153,.3);
 }
-.badge-featured{ background: var(--magenta); }
 
-/* Body + divider lives here */
-.update-body{
+/* Body */
+.update-body {
   display: flex; flex-direction: column;
-  gap: 8px;
   padding: 14px 16px 10px;
-  flex: 1 1 auto;
-  min-height: 0;
+  flex: 1 1 auto; min-height: 0;
   border-top: 1px solid #EEF2F7;
 }
-
-/* Meta, tags, etc. */
-.update-meta{
+.update-meta {
   display: flex; align-items: center; flex-wrap: wrap;
-  gap: 8px 10px;
-  color: var(--muted);
-  font-size: 13px;
-  margin-bottom: 2px;
+  gap: 8px 10px; color: var(--muted); font-size: 13px; margin-bottom: 2px;
 }
-.update-tags{
-  display: inline-flex; gap: 6px; flex-wrap: wrap;
-}
-.update-tag{
-  display: inline-flex; align-items: center;
-  gap: 6px;
-  font-weight: 700; font-size: 12px;
-  color: var(--magenta);
-  background: rgba(236,72,153,.10);
-  border: 1px solid rgba(236,72,153,.32);
-  padding: 4px 8px;
-  border-radius: 999px;
+.update-tags { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.update-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; font-size: 12px; color: var(--magenta);
+  background: rgba(236,72,153,.10); border: 1px solid rgba(236,72,153,.32);
+  padding: 4px 8px; border-radius: 999px;
 }
 
-/* Clamp text, maintain responsive overrides */
+/* Title & summary clamp */
 .update-title,
-.update-summary {
+.update-summary{
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  --lh: 1.25;
-  --lc: 2;
+  --lh: 1.25; --lc: 2;
   line-height: var(--lh);
   max-height: calc(var(--lc) * var(--lh) * 1em);
   line-clamp: var(--lc);
   -webkit-line-clamp: var(--lc);
 }
-
-.update-title {
-  margin: 2px 0 0;
-  color: var(--ink);
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  /* clamp settings inherited from the group */
+.update-title{
+  margin: 2px 0 0; color: var(--ink);
+  font-size: 18px; font-weight: 800; letter-spacing: -0.01em;
 }
-.update-card--featured .update-title {
-  font-size: 20px;
+.update-card--featured .update-title{ font-size: 20px; }
+.update-summary{
+  margin: 0; color: var(--ink-2); font-size: 14px;
+  --lc: 2; --lh: 1.45;
 }
-
-.update-summary {
-  margin: 0;
-  color: var(--ink-2);
-  font-size: 14px;
-  /* override clamp for summary specifically */
-  --lc: 2;
-  --lh: 1.45;
-}
-.update-card--featured .update-summary {
-  /* Let featured summaries have more lines (3) if needed */
-  --lc: 3;
-}
+.update-card--featured .update-summary{ --lc: 3; }
 
 /* Actions */
 .update-actions{
-  margin-top: auto;
-  padding: 0 16px 14px;
+  margin-top: auto; padding: 0 16px 14px;
   display: flex; gap: 12px; align-items: center;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.update-actions a{
-  color: var(--blue); font-weight: 800; text-decoration: none;
-}
+.update-actions a{ color: var(--blue); font-weight: 800; text-decoration: none; }
 .update-actions a:hover{ text-decoration: underline; }
 
-/* ---------- Responsive ---------- */
+/* Responsive */
 @media (max-width: 1200px){
   .updates-grid{ gap: var(--gap-md) }
-  .update-card{ grid-column: span 6; }
-  .update-card--featured{ grid-column: span 12; }
+  .update-card{ grid-column: span 6 }
+  .update-card--featured{ grid-column: span 12 }
 }
 
-/* =======================
-   MOBILE-ONLY FIXES
-   ======================= */
-@media (max-width: 720px) {
+/* MOBILE: keep previous fixes + toolbar stacking */
+@media (max-width: 720px){
+  .updates-section{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 
-  /* Keep sizes predictable on very small screens */
-  .updates-section {
-    -webkit-text-size-adjust: 100%;
-            text-size-adjust: 100%;
-  }
-
-  /* Toolbar stacking & mobile layout fixes */
-  .updates-toolbar {
+  .updates-toolbar{
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 12px 20px 8px;
+    gap: 12px; padding: 12px 20px 8px;
   }
   .updates-toolbar > .search,
   .updates-toolbar > .chips,
-  .updates-toolbar > .sort {
-    min-width: 0;
-  }
-  .chips {
-    justify-content: flex-start;
-  }
-  .sort {
-    justify-content: flex-start;
-  }
-  .sort select {
-    width: 100%;
-  }
+  .updates-toolbar > .sort{ min-width: 0; }
+  .chips{ justify-content:flex-start; }
+  .sort{ justify-content:flex-start; }
+  .sort select{ width:100%; }
 
-  /* Let rows and cards grow with content */
-  .updates-grid {
-    gap: var(--gap-sm);
-    grid-auto-rows: auto;    /* allow cards to expand vertically */
-  }
-  .update-card {
-    height: auto;           /* no longer constrained to fixed row */
-  }
+  .updates-grid{ gap:var(--gap-sm); grid-auto-rows:auto; }
+  .update-card{ height:auto; }
+  .update-media{ height:auto; aspect-ratio:16/9; }
+  .update-card--featured .update-media{ aspect-ratio:21/9; }
 
-  /* Make media responsive without eating a fixed chunk of card height */
-  .update-media {
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-  .update-card--featured .update-media {
-    aspect-ratio: 21 / 9;
-  }
+  .update-title{ --lc:3; }
+  .update-summary{ --lc:3; }
 
-  /* Allow more text lines on phone */
-  .update-title { --lc: 3; }
-  .update-summary { --lc: 3; }
-
-  /* On WebKit (iOS), rely on -webkit-line-clamp and disable max-height to avoid last-line cropping */
-  @supports (-webkit-line-clamp: 1) {
-    .update-title,
-    .update-summary {
-      max-height: none;
-    }
+  @supports (-webkit-line-clamp:1){
+    .update-title,.update-summary{ max-height:none; }
   }
 }
 
+@media (prefers-reduced-motion: reduce){ .chip{ transition:none; } }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .chip{ transition: none; }
-}
-
-/* Screen reader */
 .sr-only{
-  position: absolute; width: 1px; height: 1px;
-  padding: 0; margin: -1px; overflow: hidden;
-  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-}
-
-/* Fallback styling for missing images */
-.update-media.is-empty {
-  background: linear-gradient(180deg, #F8FAFC, #F3F4F6);
-}
-.update-media.is-empty::after {
-  content: 'No image';
-  position: absolute; inset: 0;
-  display: grid; place-items: center;
-  color: #9CA3AF; font-weight: 700; font-size: 14px;
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0;
 }

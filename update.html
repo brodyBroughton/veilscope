@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Updates — Veilscope</title>
+  <title>Update — Veilscope</title>
 
   <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -21,13 +21,13 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/app.css">
-  <link rel="stylesheet" href="assets/css/pages/updates.css">
+  <link rel="stylesheet" href="assets/css/pages/update.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-hidden="true" />
 
-  <!-- Header -->
+  <!-- Header (same as other pages) -->
   <header class="site-header">
     <div class="nav-wrap">
       <a class="brand" href="/"><img class="brand-logo" src="assets/img/logos/veilscope-logo-dark.png" alt="Veilscope" /></a>
@@ -57,7 +57,7 @@
     <nav class="drawer-nav">
       <a class="drawer-link" href="learn-more.html">Learn More</a>
       <a class="drawer-link" href="about.html">About Us</a>
-      <a class="drawer-link" href="updates.html" aria-current="page">Project Updates</a>
+      <a class="drawer-link" href="updates.html">Project Updates</a>
     </nav>
     <div class="drawer-actions">
       <a class="btn btn-get-started" href="https://app.veilscope.com/signup">Get Started</a>
@@ -66,47 +66,44 @@
   </aside>
 
   <main id="main">
-    <!-- Page hero -->
-    <section class="updates-hero" aria-labelledby="updates-title">
-      <div class="updates-wrap">
-        <h1 id="updates-title">Project Updates</h1>
-        <p>Release notes, model improvements, and product changes from the Veilscope team.</p>
+    <!-- Hero -->
+    <section class="update-hero" aria-labelledby="update-title">
+      <div class="update-wrap">
+        <nav aria-label="Breadcrumb" class="crumbs">
+          <a class="crumb-back" id="back-link" href="updates.html">← Back to Updates</a>
+        </nav>
+        <div class="update-header">
+          <h1 id="update-title">Loading…</h1>
+          <div class="update-meta-row">
+            <time id="update-date" datetime=""></time>
+            <div id="update-tags" class="update-tags"></div>
+            <span id="update-badge" class="badge badge-featured" hidden>Featured</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Toolbar: search / tags / sort -->
-    <div class="updates-toolbar" role="region" aria-label="Updates filters">
-      <div class="search">
-        <label class="sr-only" for="updates-search">Search updates</label>
-        <input id="updates-search" type="search" placeholder="Search updates…" autocomplete="off" />
-      </div>
+    <!-- Media -->
+    <section class="update-hero-media" aria-label="Header media">
+      <figure class="hero-figure">
+        <img id="update-image" alt="" />
+        <figcaption id="update-image-alt" class="sr-only"></figcaption>
+      </figure>
+    </section>
 
-      <!-- Updated: role="group" + aria-pressed -->
-      <div class="chips" role="group" aria-label="Filter by tag">
-        <button class="chip" data-tag="All" aria-pressed="true">All</button>
-        <button class="chip" data-tag="Weekly Report" aria-pressed="false">Weekly Reports</button>
-        <button class="chip" data-tag="Brody" aria-pressed="false">Brody</button>
-        <button class="chip" data-tag="Jacob" aria-pressed="false">Jacob</button>
-      </div>
+    <!-- Body -->
+    <section class="update-body-section">
+      <div class="update-wrap">
+        <article id="update-article" class="prose">
+          <!-- update.js will render content here -->
+        </article>
 
-      <div class="sort">
-        <label for="sort-select">Sort</label>
-        <select id="sort-select" name="sort">
-          <option value="featured" selected>Featured</option>
-          <option value="date_desc">Newest first</option>
-          <option value="date_asc">Oldest first</option>
-        </select>
-      </div>
-    </div>
+        <hr class="update-divider" />
 
-    <!-- Updates grid (rendered by JS from assets/data/updates.json) -->
-    <section class="updates-section" aria-labelledby="updates-grid-title">
-      <div class="updates-wrap">
-        <h2 id="updates-grid-title" class="sr-only">Latest updates</h2>
-        <div class="updates-grid"><!-- updates.js will inject cards here --></div>
-
-        <!-- Optional future button -->
-        <!-- <div class="load-more-wrap"><button class="btn btn-login load-more">Load more</button></div> -->
+        <nav class="update-pager" aria-label="More updates">
+          <a id="prev-update" class="pager-link" href="#" hidden>← Previous</a>
+          <a id="next-update" class="pager-link" href="#" hidden>Next →</a>
+        </nav>
       </div>
     </section>
   </main>
@@ -117,16 +114,7 @@
       <section class="footer-brand">
         <a class="brand brand--footer" href="/"><img class="brand-logo" src="assets/img/logos/veilscope-logo-light.png" alt="Veilscope" /></a>
         <p class="footer-tagline">AI insights from public financial filings.</p>
-
-        <form class="newsletter" action="#" method="post" novalidate>
-          <label class="newsletter-label" for="newsletter-email">Project Updates</label>
-          <div class="newsletter-row">
-            <input id="newsletter-email" name="email" type="email" placeholder="you@example.com" required />
-            <button class="btn btn-get-started" type="submit">Subscribe</button>
-          </div>
-          <p class="newsletter-help">By signing up, you agree to receive emails.</p>
-          <p class="newsletter-msg" aria-live="polite"></p>
-        </form>
+        <p class="newsletter-help">You’re viewing an update detail.</p>
       </section>
 
       <nav class="footer-col" aria-label="Explore">
@@ -134,7 +122,7 @@
         <ul class="footer-links">
           <li><a href="learn-more.html">Learn More</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="updates.html">Project Updates</a></li>
         </ul>
       </nav>
 
@@ -168,8 +156,8 @@
     </div>
   </footer>
 
-  <!-- Scripts: global first, then page script -->
+  <!-- Scripts -->
   <script src="assets/js/app.js" defer></script>
-  <script src="assets/js/updates.js" defer></script>
+  <script src="assets/js/update.js" defer></script>
 </body>
 </html>
