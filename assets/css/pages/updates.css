@@ -97,6 +97,12 @@
   border-color: rgba(236,72,153,.35);
   color: var(--magenta);
 }
+/* NEW: also support ARIA pressed for visual active state */
+.chip[aria-pressed="true"]{
+  background: rgba(236,72,153,.12);
+  border-color: rgba(236,72,153,.35);
+  color: var(--magenta);
+}
 .chip:active{ transform: translateY(1px); }
 
 .sort{
@@ -278,12 +284,22 @@
 
 /* Responsive: at smaller widths, let titles/summaries be longer */
 @media (max-width: 720px) {
-  .update-title {
-    --lc: 3;
+  /* STACK THE TOOLBAR NEATLY ON MOBILE (sorting fix) */
+  .updates-toolbar{
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px 20px 8px;
   }
-  .update-summary {
-    --lc: 3;
-  }
+  .updates-toolbar > .search,
+  .updates-toolbar > .chips,
+  .updates-toolbar > .sort{ min-width: 0; } /* prevent overflow */
+
+  .chips{ justify-content: flex-start; }     /* chips align left on mobile */
+  .sort{ justify-content: flex-start; }      /* sort aligns left on mobile */
+  .sort select{ width: 100%; }               /* full-width select on mobile */
+
+  .update-title { --lc: 3; }
+  .update-summary { --lc: 3; }
 }
 
 /* Reduced motion */
