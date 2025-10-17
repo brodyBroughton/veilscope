@@ -288,42 +288,63 @@
 @media (max-width: 720px) {
 
   /* Keep sizes predictable on very small screens */
-  .updates-section{
+  .updates-section {
     -webkit-text-size-adjust: 100%;
             text-size-adjust: 100%;
   }
 
-  /* Let rows and cards grow with content */
-  .updates-grid{
-    gap: var(--gap-sm);
-    grid-auto-rows: auto;          /* was fixed px height */
+  /* Toolbar stacking & mobile layout fixes */
+  .updates-toolbar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px 20px 8px;
   }
-  .update-card{
-    height: auto;                  /* was height:100% of the fixed row */
+  .updates-toolbar > .search,
+  .updates-toolbar > .chips,
+  .updates-toolbar > .sort {
+    min-width: 0;
+  }
+  .chips {
+    justify-content: flex-start;
+  }
+  .sort {
+    justify-content: flex-start;
+  }
+  .sort select {
+    width: 100%;
+  }
+
+  /* Let rows and cards grow with content */
+  .updates-grid {
+    gap: var(--gap-sm);
+    grid-auto-rows: auto;    /* allow cards to expand vertically */
+  }
+  .update-card {
+    height: auto;           /* no longer constrained to fixed row */
   }
 
   /* Make media responsive without eating a fixed chunk of card height */
-  .update-media{
+  .update-media {
     height: auto;
     aspect-ratio: 16 / 9;
   }
-  .update-card--featured .update-media{
+  .update-card--featured .update-media {
     aspect-ratio: 21 / 9;
   }
 
-  /* Allow a little more text on phones */
-  .update-title{ --lc: 3; }
-  .update-summary{ --lc: 3; }
+  /* Allow more text lines on phone */
+  .update-title { --lc: 3; }
+  .update-summary { --lc: 3; }
 
-  /* On WebKit (iOS), rely on -webkit-line-clamp and remove max-height
-     to avoid the last-line "cropped" look from rounding. */
-  @supports (-webkit-line-clamp: 1){
+  /* On WebKit (iOS), rely on -webkit-line-clamp and disable max-height to avoid last-line cropping */
+  @supports (-webkit-line-clamp: 1) {
     .update-title,
-    .update-summary{
+    .update-summary {
       max-height: none;
     }
   }
 }
+
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce){
