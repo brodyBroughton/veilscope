@@ -25,6 +25,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/app.css" />
+  <link rel="stylesheet" href="assets/css/pages/contact.css">
+
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -111,38 +113,46 @@
     </section>
   </main>
 
-  <div class="footer-leadin" aria-hidden="true"></div>
-  <footer class="site-footer">
+    <div class="footer-leadin" aria-hidden="true"></div>
+  <footer class="site-footer" role="contentinfo">
     <div class="footer-wrap">
       <section class="footer-brand">
-        <a class="brand brand--footer" href="/"><img class="brand-logo" src="assets/img/logos/veilscope-logo-light.png" alt="Veilscope" /></a>
+        <a class="brand brand--footer" href="/" aria-label="Veilscope Home">
+          <img class="brand-logo" src="assets/img/logos/veilscope-logo-light.png" alt="Veilscope" />
+        </a>
         <p class="footer-tagline">AI insights from public financial filings.</p>
+
         <form class="newsletter" action="#" method="post" novalidate>
           <label class="newsletter-label" for="newsletter-email">Project Updates</label>
           <div class="newsletter-row">
             <input id="newsletter-email" name="email" type="email" placeholder="you@example.com" required />
             <button class="btn btn-get-started" type="submit">Subscribe</button>
           </div>
-          <p class="newsletter-help">By signing up, you agree to receive emails.</p>
+          <p class="newsletter-help">By signing up, you agree to receive emails. Read our <a href="#">Privacy Policy</a>.</p>
           <p class="newsletter-msg" aria-live="polite"></p>
         </form>
       </section>
+
       <nav class="footer-col" aria-label="Explore">
         <h3 class="footer-title">Explore</h3>
         <ul class="footer-links">
-          <li><a href="learn-more.html">Learn More</a></li>
           <li><a href="about.html">About Us</a></li>
+          <li><a href="learn-more.html">About the Project</a></li>
           <li><a href="updates.html">Project Updates</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="learn-more.html#faq">Help &amp; FAQ</a></li>
         </ul>
       </nav>
+
       <nav class="footer-col" aria-label="Connect">
         <h3 class="footer-title">Connect</h3>
         <ul class="footer-links">
-          <li><a href="#">Resources</a></li>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Terms</a></li>
+          <li><a href="#">Resources and References</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
         </ul>
       </nav>
+
       <nav class="footer-col" aria-label="Socials">
         <h3 class="footer-title">Socials</h3>
         <ul class="footer-links">
@@ -153,10 +163,14 @@
         </ul>
       </nav>
     </div>
+
     <div class="footer-bottom">
-      <p>© <span id="year"></span> Veilscope. All rights reserved.</p>
+      <p class="copyright">© <span id="year"></span> Veilscope. All rights reserved.</p>
       <ul class="legal-links">
-        <li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Status</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Status</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </footer>

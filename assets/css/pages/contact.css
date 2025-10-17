@@ -1,0 +1,194 @@
+/* ===========================================================
+   Veilscope — Contact Page
+   Depends on global variables & components in assets/css/app.css
+   =========================================================== */
+
+:root {
+  /* local helpers for this page */
+  --wrap-max: 1160px;
+  --pad-x: 20px;
+  --ring: rgba(59,130,246,.15);
+  --border-subtle: #E5E7EB;
+}
+
+/* ---------- Hero ---------- */
+.page-hero{
+  background: linear-gradient(180deg, #fff, rgba(59,130,246,.06));
+  margin-top: var(--nav-height);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: clamp(64px, 8vw, 100px) 0 clamp(18px, 4vw, 28px);
+}
+.page-hero .container{
+  max-width: var(--wrap-max);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+.page-hero h1{
+  margin: 0 0 8px;
+  color: var(--color-secondary);
+  font-weight: 900;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  font-size: clamp(28px, 3.8vw, 46px);
+}
+.page-hero p{
+  margin: 0;
+  color: #4B5563; /* slightly muted */
+  font-size: clamp(15px, 2vw, 18px);
+}
+
+/* ---------- Main content ---------- */
+.content-section{
+  background: var(--color-primary);
+  padding: clamp(28px, 6vw, 56px) 0 clamp(48px, 8vw, 72px);
+}
+.content-section .container{
+  max-width: var(--wrap-max);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+
+/* Two-column layout (form + side info) */
+.two-col{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .75fr);
+  gap: clamp(18px, 3.5vw, 36px);
+  align-items: start;
+}
+
+/* ---------- Form card ---------- */
+.form-card{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.04);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: clamp(18px, 2.4vw, 24px);
+}
+.form-row{
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.form-row:last-child{ margin-bottom: 0; }
+
+.form-row label{
+  font-weight: 800;
+  color: var(--color-secondary);
+  font-size: 14px;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea{
+  width: 100%;
+  font: inherit;
+  color: var(--color-secondary);
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 12px 12px;
+  box-sizing: border-box;
+  transition: box-shadow .16s ease, border-color .16s ease, background-color .16s ease;
+}
+.form-card input::placeholder,
+.form-card textarea::placeholder{ color: #9CA3AF; }
+
+.form-card textarea{ resize: vertical; }
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus{
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 6px var(--ring);
+}
+.form-card input:focus-visible,
+.form-card select:focus-visible,
+.form-card textarea:focus-visible{
+  outline: none;
+}
+
+/* basic invalid styling (native constraint validation) */
+.form-card input:invalid,
+.form-card select:invalid,
+.form-card textarea:invalid{
+  border-color: #EF4444;
+}
+
+/* submit feedback line */
+.form-msg{
+  margin: 10px 0 0;
+  font-size: 14px;
+  min-height: 1.2em;
+  color: #4B5563;
+}
+.form-msg.success{ color: #10B981; }
+.form-msg.error{ color: #EF4444; }
+
+/* Make the submit button fill on tiny screens if desired */
+@media (max-width: 420px){
+  .form-card .btn{ width: 100%; justify-content: center; }
+}
+
+/* ---------- Sidebar (map / office / social) ---------- */
+.contact-side{
+  display: grid;
+  gap: 16px;
+}
+
+.card-placeholder{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.04);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9CA3AF;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.contact-list{
+  list-style: none;
+  padding: 0; margin: 0;
+  display: grid; gap: 10px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.04);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 14px 16px;
+}
+.contact-list li{
+  display: flex; gap: 8px; align-items: baseline;
+  color: var(--color-secondary);
+  font-size: 15px;
+}
+.contact-list strong{
+  font-weight: 800;
+  color: var(--color-secondary);
+  white-space: nowrap;
+}
+
+/* ---------- Mobile & small screens ---------- */
+@media (max-width: 900px){
+  .two-col{
+    grid-template-columns: 1fr;
+  }
+  .contact-side{
+    order: 2;  /* stays after the form in document order */
+  }
+  .form-card{
+    order: 1;
+  }
+  .page-hero .container,
+  .content-section .container{
+    padding-inline: 16px;
+  }
+}
+
+/* ---------- Motion preferences ---------- */
+@media (prefers-reduced-motion: reduce){
+  * { transition: none !important; }
+}
