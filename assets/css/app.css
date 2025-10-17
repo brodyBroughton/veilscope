@@ -204,17 +204,18 @@ img,svg{max-width:100%;height:auto;display:block}
 
   .how-wrap{
     grid-template-columns:1fr;justify-items:start;text-align:left;
-    /* FIX: make side padding symmetric so content centers on all devices */
+    /* FIX: symmetric inline padding for perfect centering */
     padding-inline: clamp(16px, 5vw, 26px);
     width:100%;
   }
   .how-copy,.how-visual{width:100%;max-width:700px}
   .how-title{font-size:clamp(26px,7vw,40px)}
   .how-lede{font-size:clamp(14px,4.2vw,18px)}
-  .pipeline-svg{width:min(92vw,480px);margin:12px 0 0 0}
+  /* FIX: center the pipeline figure on mobile */
+  .pipeline-svg{width:min(92vw,480px);margin:12px auto 0}
 
   .features-wrap{
-    /* FIX: symmetric inline padding for perfect centering */
+    /* FIX: symmetric inline padding for centering */
     padding-inline: clamp(16px, 5vw, 26px);
   }
   .features-head{text-align:left}
