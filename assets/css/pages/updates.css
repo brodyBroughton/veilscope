@@ -265,3 +265,18 @@
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
   clip:rect(0,0,0,0);white-space:nowrap;border:0;
 }
+
+/* Keep the Featured badge above the image */
+.update-media .badge { z-index: 2; pointer-events: none; }
+
+/* (Optional, makes the order explicit) */
+.update-media img { z-index: 1; }
+
+/* === White halo around the Featured badge (readability on any image) === */
+.update-media .badge{
+  /* layered shadows: thin white ring + soft white glow + existing pink depth */
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.90),   /* crisp white ring */
+    0 0 10px rgba(255,255,255,0.70),    /* faint white glow */
+    0 6px 18px rgba(236,72,153,0.28);   /* keep the magenta depth */
+}

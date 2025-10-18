@@ -2,6 +2,9 @@
 
 :root { --wrap-max: 1160px; --pad-x: 20px; }
 
+/* Forces featured badge to be hidden when featured attribute is false */
+[hidden]{ display:none !important; }
+
 /* Hero & header */
 .update-hero{
   background: linear-gradient(180deg,#fff,rgba(59,130,246,.06));

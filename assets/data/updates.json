@@ -3,21 +3,21 @@
     {
       "slug": "week-1-progress-report-brody",
       "title": "Week 1 Progress Report - Brody",
-      "summary": "Expirimenting with Figma sites for website design and deployment.",
+      "summary": "Project foundations established, website designed and basic deployment on Netlify.",
       "date": "2025-10-10",
-      "image": "assets/img/updates/q3-overview.jpg",
-      "imageAlt": "Graph showing Q3 revenue growth",
+      "image": "assets/img/updates/week1brody.jpg",
+      "imageAlt": "",
       "tags": ["Weekly Report", "Brody"],
       "featured": false,
-      "content": "<p>In Q3 we achieved a 12% year-on-year revenue increase, driven by stronger product adoption and improved retention. However, cost pressures from supply chain disruptions and inflationary inputs are beginning to tighten margins.</p><h2>Highlights</h2><ul><li>Revenue up 12%</li><li>Gross margin narrowed by 1.5%</li><li>CapEx increased by 8%</li></ul><p>Going forward, we plan to mitigate supply chain risk by diversifying suppliers and locking in pricing on key raw materials.</p>"
+      "content": "<p><strong>Summary of Work Completed</strong><br />During Week 1, significant progress was made in establishing the foundation for the project&rsquo;s development. The primary focus this week was on planning, design, and early implementation stages of the investment information tool, ensuring all tasks were completed in line with the established project timeline.</p><p>Key accomplishments include:</p><ul><li>Created the Project Proposal outlining objectives, deliverables, and milestones</li><li>Developed initial wireframes to visualize the basic structure of the website</li><li>Produced mid-fidelity mockups using Figma Design, refining user interface elements and aligning them with the tool&rsquo;s intended functionality</li><li>Drafted a detailed project roadmap and visual timeline, providing a clear sequence of milestones and deliverables</li><li>Held a meeting with the project sponsor to confirm the project direction and ensure alignment with the proposed timeline and long-term goals</li><li>Began website development using Figma Sites, experimenting with layout design and deployment processes</li><li>Deployed an early version of the website using Netlify, successfully hosting the initial prototype online</li></ul><p>All planned tasks for this phase were completed according to schedule, keeping the project fully on track with the overall timeline and goals.</p><p><strong>Challenges Encountered and Solutions Implemented</strong><br />The main challenge during this period involved working with Figma Sites, which is still in beta and presented several limitations. The platform&rsquo;s restricted styling options, limited access to source code, and bugs inherent to its beta version made it difficult to customize the design to the desired specifications.</p><p>To address these issues:</p><ul><li>Reviewed Figma Sites documentation to better understand its constraints</li><li>Consulted video tutorials to explore workarounds for styling and deployment challenges</li><li>Used ChatGPT to troubleshoot issues, though information was limited due to the newness of the platform</li></ul><p>While a working version was successfully deployed using Netlify, these challenges ultimately informed the decision to transition away from Figma Sites and instead build the website directly using HTML, CSS, and JavaScript starting in Week 2.</p><p><strong>Goals for the Upcoming Week</strong><br />For Week 2, the focus will shift to redeveloping the website using HTML, CSS, and JavaScript, allowing for more control and flexibility in design and functionality. Specific goals include:</p><ul><li>Finalizing the website design and layout for both desktop and mobile versions</li><li>Completing front-end implementation using responsive design principles</li><li>Conducting testing and refinements to ensure smooth performance and user experience across devices</li></ul><p>These objectives will further the project&rsquo;s progress toward a fully functional prototype while maintaining alignment with the overall project timeline.</p>"
     },
     {
       "slug": "week-1-progress-report-jacob",
       "title": "Week 1 Progress Report - Jacob",
       "summary": "Jacob's progress report that he needs to write.",
       "date": "2025-10-10",
-      "image": "assets/img/updates/product-launch.jpg",
-      "imageAlt": "Prototype of new AI scanner",
+      "image": "assets/img/updates/week1jacob.jpg",
+      "imageAlt": "",
       "tags": ["Weekly Report", "Jacob"],
       "featured": false,
       "content": "<p>We are excited to release the beta version of our AI-powered scanner tool. In this beta, users can enter a company ticker and receive a risk score with supporting highlights.</p><h2>Features</h2><ul><li>Risk breakdown by categories (e.g. liquidity, governance, market)</li><li>Sentiment insights from MD&A text</li><li>Historical alerts and anomaly detection</li></ul><p>Feedback is encouraged; we plan to iterate quickly and expand capabilities over the coming months.</p>"
@@ -25,21 +25,21 @@
     {
       "slug": "week-2-progress-report-brody",
       "title": "Week 2 Progress Report - Brody",
-      "summary": "Brody's progress report that he needs to write.",
+      "summary": "Website in final stages, major redesigns, and switched deployment to Vercel.",
       "date": "2025-10-17",
-      "image": "assets/img/updates/product-launch.jpg",
-      "imageAlt": "Prototype of new AI scanner",
+      "image": "assets/img/updates/week2brody.jpg",
+      "imageAlt": "",
       "tags": ["Weekly Report", "Brody"],
       "featured": true,
-      "content": "<p>We are excited to release the beta version of our AI-powered scanner tool. In this beta, users can enter a company ticker and receive a risk score with supporting highlights.</p><h2>Features</h2><ul><li>Risk breakdown by categories (e.g. liquidity, governance, market)</li><li>Sentiment insights from MD&A text</li><li>Historical alerts and anomaly detection</li></ul><p>Feedback is encouraged; we plan to iterate quickly and expand capabilities over the coming months.</p>"
+      "content": "<p><strong>Summary of Work Completed</strong></p><p>During Week 2, the primary focus was on rebuilding the project website from the ground up using standard web technologies. The transition away from Figma Sites allowed for significantly more control over layout, performance, and overall design flexibility. All tasks were completed according to schedule, keeping the project fully aligned with the established timeline.</p><p>Key accomplishments include:</p><ul><li>Fully transitioned from Figma Sites to custom HTML, CSS, and JavaScript development for the website</li><li>Switched deployment platforms from Netlify to Vercel to prepare for future backend integration using Next.js, which offers better compatibility and deployment support</li><li>Recreated all core webpages with improved structure, responsiveness, and visual consistency</li><li>Implemented mobile responsiveness across all elements and added hamburger menus where applicable</li><li>Added favicons for all device types to ensure branding consistency</li></ul><p>The new development environment and hosting platform have positioned the project for smoother integration with backend features and AI functionality later in the process.</p><p><strong>Website Design and Functional Updates</strong></p><p>Major updates were made across all pages to improve usability, design coherence, and performance. The redesign prioritized efficiency, professional presentation, and compatibility across devices.</p><p><strong>Landing Page</strong></p><p>The landing page received a complete visual refresh. The secondary accent color was changed from gold to magenta to improve contrast and brand alignment. The hero section was updated from a static image to a native gradient, which improves loading speed and cross-device performance. Image placeholders were replaced with SVG graphics for sharper visuals. The footer design was refined to look more professional and cohesive with the rest of the site.</p><p><strong>Project Updates Page</strong>&nbsp;</p><p>Significant functional and design improvements were made to the project updates page. Instead of using dropdown menus for each update, a new card-based layout was implemented. Each update now appears as an individual card that displays tags, images, and summary text. Additional features include the ability to search and sort updates, filter by tags, and cycle between updates. This change makes navigation faster and the interface more engaging for users.</p><p><strong>Learn More Page</strong></p><p>The learn more page was built out to include key project details. Problem and solution statements were added to explain the project&rsquo;s purpose and objectives. The page also now contains process explanations, call-to-action buttons, detailed descriptions, a section for future additions, a list of frequently asked questions, and a disclaimer for transparency.</p><p><strong>About Us Page</strong></p><p>This page now contains a simple description of the product along with sections introducing the founding team and project sponsor.</p><p><strong>Contact Page</strong></p><p>A new contact page was added with fully functional input fields. While these fields are not yet connected to a backend, the layout and interaction design have been implemented to prepare for future integration.</p><p><strong>Web Application Page</strong></p><p>The web application interface was substantially improved. New buttons for settings and notifications were added. The page now displays key indicators such as EDGAR API status, rate limit, and last synchronization time. The overall design was refined to match the main website&rsquo;s updated palette and proportions. A light and dark mode system was introduced, with the ability to follow system-level display preferences. Basic functionality was implemented for key interactive elements such as creating folders, closing files, and managing the workspace.</p><p><strong>Challenges Encountered and Solutions Implemented</strong></p><p>The primary challenge this week was rebuilding the website from scratch after moving away from Figma Sites. While some design concepts from the original mockups were reused, most layouts had to be recreated and restructured. The transition to Vercel was smooth and required minimal setup, as the website was linked directly through GitHub for automatic deployment. Overall, the switch allowed for greater creative control and eliminated the technical limitations previously encountered.</p><p><strong>Goals for the Upcoming Week</strong></p><p>The main objectives for the next week are to finalize the website and ensure all pages function as intended. Specific goals include:</p><ul><li>Making final design and functionality adjustments to the website</li><li>Conducting additional testing to identify and resolve any bugs or inconsistencies</li><li>Potentially redesigning the landing page for improved presentation and performance</li><li>Beginning to learn and explore Next.js to prepare for backend integration</li></ul><p>The project remains on schedule, with the foundation now fully established for continued development and upcoming feature implementation.</p>"
     },
     {
       "slug": "week-2-progress-report-jacob",
       "title": "Week 2 Progress Report - Jacob",
       "summary": "Jacob's progress report that he needs to write.",
       "date": "2025-10-17",
-      "image": "assets/img/updates/product-launch.jpg",
-      "imageAlt": "Prototype of new AI scanner",
+      "image": "assets/img/updates/week2jacob.jpg",
+      "imageAlt": "",
       "tags": ["Weekly Report", "Jacob"],
       "featured": true,
       "content": "<p>We are excited to release the beta version of our AI-powered scanner tool. In this beta, users can enter a company ticker and receive a risk score with supporting highlights.</p><h2>Features</h2><ul><li>Risk breakdown by categories (e.g. liquidity, governance, market)</li><li>Sentiment insights from MD&A text</li><li>Historical alerts and anomaly detection</li></ul><p>Feedback is encouraged; we plan to iterate quickly and expand capabilities over the coming months.</p>"
@@ -50,10 +50,10 @@
       "summary": "This is a temporary template for report cards.",
       "date": "2025-1-01",
       "image": "assets/img/updates/nonexistent-image.jpg",
-      "imageAlt": "Placeholder Image",
-      "tags": ["Weekly Report"],
+      "imageAlt": "Placeholder Image for Report Card",
+      "tags": ["Cool tag 1", "Another cool tag"],
       "featured": false,
-      "content": "<p>This is a temporary template for report cards.</p>"
+      "content": "<p>Progress report</p><p>Summary:</p><p>Blah blah balh</p><p>Things added</p><ul><li>Thing 1</li><li>Thing 2</li></ul><p><strong>Conclusion</strong></p>"
     }
   ]
 }

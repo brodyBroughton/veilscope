@@ -111,8 +111,8 @@
       .map((t) => `<span class="update-tag">${t}</span>`)
       .join('');
 
-    // featured badge
-    badgeEl.hidden = !featured;
+    // featured badge — show only when the data has a *boolean* true
+    badgeEl.toggleAttribute('hidden', featured !== true);
 
     // media
     if (image) {
