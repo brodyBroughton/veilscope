@@ -4,7 +4,7 @@
 Veilscope is a static marketing site that introduces an AI-powered platform for translating SEC filings into plain-language risk scorecards. It includes a hero landing page, supporting content for investors, a team profile, contact form, and a prototype of the in-product web app experience. 【F:index.html†L33-L134】【F:learn-more.html†L37-L196】【F:about.html†L40-L124】
 
 ### Live Site
-- Production URL: [veilscope.vercel.app](https://veilscope.vercel.app)
+- Production URL: [veilscope.tech](https://veilscope.tech)
   - Tip: The interactive web app design can be explored by clicking any **Get Started** button across the site.
 
 ## Project Structure
