@@ -2,10 +2,6 @@
    Keeps global app.css unchanged for other pages. */
 
 /* ---- Basics & tokens ---- */
-:root{
-  --home-maxw: 1200px;
-  --home-shadow: 0 10px 30px rgba(0,0,0,.08);
-}
 
 /* Reduce emphasis of non-primary nav items on the landing */
 .home .primary-nav .nav-list a.nav-link--quiet{

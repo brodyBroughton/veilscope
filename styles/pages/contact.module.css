@@ -3,14 +3,6 @@
    Depends on global variables & components in assets/css/app.css
    =========================================================== */
 
-:root {
-  /* local helpers for this page */
-  --wrap-max: 1160px;
-  --pad-x: 20px;
-  --ring: rgba(59,130,246,.15);
-  --border-subtle: #E5E7EB;
-}
-
 /* ---------- Hero ---------- */
 .page-hero{
   background: linear-gradient(180deg, #fff, rgba(59,130,246,.06));

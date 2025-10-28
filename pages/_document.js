@@ -5,6 +5,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Favicons + web manifest */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/icons/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/icons/favicon-16x16.png" />
@@ -13,12 +14,14 @@ export default function Document() {
         <meta name="theme-color" content="#F3F4F6" />
         <meta name="msapplication-TileColor" content="#F3F4F6" />
 
+        {/* Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+          rel="stylesheet"
+        />
 
-        <link rel="stylesheet" href="/assets/css/app.css" />
-        <link rel="stylesheet" href="/assets/css/pages/contact.css" />
       </Head>
       <body>
         <Main />

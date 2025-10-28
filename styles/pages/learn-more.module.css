@@ -3,13 +3,6 @@
    Mirrors Updates hero spacing; uses global tokens from app.css
    ========================================================================== */
 
-:root{
-  --_container: 1160px;
-  --_gap-lg: 28px;
-  --_gap-md: 20px;
-  --_gap-sm: 14px;
-}
-
 /* Shared container */
 .container{
   max-width: var(--_container);

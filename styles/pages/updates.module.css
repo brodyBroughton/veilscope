@@ -2,27 +2,6 @@
    Project Updates page styles
    ========================================================================== */
 
-:root {
-  --primary-bg: #F3F4F6;
-  --ink: #1F2937;
-  --ink-2: #374151;
-  --muted: #6B7280;
-  --ui: #E5E7EB;
-  --ring: rgba(59,130,246,.15);
-  --blue: #3B82F6;
-  --magenta: #EC4899;
-  --shadow: 0 8px 28px rgba(2, 8, 23, .08);
-  --radius-xl: 18px;
-
-  --card-h: 368px;
-  --card-h-featured: 368px;
-  --media-frac: .52;
-
-  --gap-lg: 28px;
-  --gap-md: 22px;
-  --gap-sm: 16px;
-}
-
 /* Hero section */
 .updates-hero {
   background: linear-gradient(180deg, #fff, rgba(59,130,246,.06));

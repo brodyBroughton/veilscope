@@ -19,55 +19,51 @@ export default function HomePage() {
                 {/* Fonts */}
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
-                    rel="stylesheet"
-                />
             </Head>
 
             <body className={styles.home}>
-                <a className={styles['skip-link']} href="#main">Skip to main content</a>
+                <a className="skip-link" href="#main">Skip to main content</a>
 
-                <input id="nav-toggle" className={styles['nav-toggle']} type="checkbox" aria-hidden="true" />
+                <input id="nav-toggle" className="nav-toggle" type="checkbox" aria-hidden="true" />
 
-                <header className={styles['site-header']} role="banner">
-                    <div className={styles['nav-wrap']}>
-                        <a className={styles.brand} href="/" aria-label="Veilscope Home">
+                <header className="site-header" role="banner">
+                    <div className="nav-wrap">
+                        <a className="brand" href="/" aria-label="Veilscope Home">
                             <img
-                                className={styles['brand-logo']}
+                                className="brand-logo"
                                 src="/assets/img/logos/veilscope-logo-dark.svg"
                                 alt="Veilscope"
                             />
                         </a>
-                        <nav className={styles['primary-nav']} aria-label="Primary">
-                            <ul className={styles['nav-list']}>
-                                <li><a className={styles['nav-link--quiet']} href="/learn-more">Learn More</a></li>
-                                <li><a className={styles['nav-link--quiet']} href="/about">About Us</a></li>
-                                <li><a className={styles['nav-link--quiet']} href="/updates">Project Updates</a></li>
+                        <nav className="primary-nav" aria-label="Primary">
+                            <ul className="nav-list">
+                                <li><a className="nav-link--quiet" href="/learn-more">Learn More</a></li>
+                                <li><a className="nav-link--quiet" href="/about">About Us</a></li>
+                                <li><a className="nav-link--quiet" href="/updates">Project Updates</a></li>
                             </ul>
                         </nav>
-                        <div className={styles['nav-actions']}>
-                            <a className={`${styles.btn} ${styles['btn-login']}`} href="https://app.veilscope.com/login" data-event="cta_login_header">Log In</a>
-                            <a className={`${styles.btn} ${styles['btn-get-started']}`} href="https://app.veilscope.com/signup" data-event="cta_header_signup">Create a free account</a>
+                        <div className="nav-actions">
+                            <a className="btn btn-login" href="https://app.veilscope.com/login" data-event="cta_login_header">Log In</a>
+                            <a className="btn btn-get-started" href="https://app.veilscope.com/signup" data-event="cta_header_signup">Create a free account</a>
                         </div>
-                        <label className={styles.hamburger} htmlFor="nav-toggle" role="button" aria-label="Open menu"
+                        <label className="hamburger" htmlFor="nav-toggle" role="button" aria-label="Open menu"
                                      aria-controls="mobile-menu" aria-expanded="false">
-                            <span className={styles.bar} aria-hidden="true"></span>
-                            <span className={styles.bar} aria-hidden="true"></span>
-                            <span className={styles.bar} aria-hidden="true"></span>
+                            <span className="bar" aria-hidden="true"></span>
+                            <span className="bar" aria-hidden="true"></span>
+                            <span className="bar" aria-hidden="true"></span>
                         </label>
                     </div>
                 </header>
 
-                <aside id="mobile-menu" className={styles['mobile-drawer']} aria-label="Mobile navigation">
-                    <nav className={styles['drawer-nav']}>
-                        <a className={styles['drawer-link']} href="/learn-more">Learn More</a>
-                        <a className={styles['drawer-link']} href="/about">About Us</a>
-                        <a className={styles['drawer-link']} href="/updates">Project Updates</a>
+                <aside id="mobile-menu" className="mobile-drawer" aria-label="Mobile navigation">
+                    <nav className="drawer-nav">
+                        <a className="drawer-link" href="/learn-more">Learn More</a>
+                        <a className="drawer-link" href="/about">About Us</a>
+                        <a className="drawer-link" href="/updates">Project Updates</a>
                     </nav>
-                    <div className={styles['drawer-actions']}>
-                        <a className={`${styles.btn} ${styles['btn-get-started']}`} href="https://app.veilscope.com/signup" data-event="cta_mobile_signup">Create a free account</a>
-                        <a className={`${styles.btn} ${styles['btn-login']}`} href="https://app.veilscope.com/login">Log In</a>
+                    <div className="drawer-actions">
+                        <a className="btn btn-get-started" href="https://app.veilscope.com/signup" data-event="cta_mobile_signup">Create a free account</a>
+                        <a className="btn btn-login" href="https://app.veilscope.com/login">Log In</a>
                     </div>
                 </aside>
 
@@ -109,7 +105,7 @@ export default function HomePage() {
                                         width="1600" height="1000"
                                         loading="eager"
                                         decoding="async"
-                                        fetchPriority="high"
+                                        fetchpriority="high"
                                     />
                                 </picture>
                                 <figcaption className={styles['sr-only']}>Illustrative preview of a company scorecard.</figcaption>
@@ -214,27 +210,27 @@ export default function HomePage() {
                     </section>
                 </main>
 
-                <div className={styles['footer-leadin']} aria-hidden="true"></div>
-                <footer className={styles['site-footer']} role="contentinfo">
-                    <div className={styles['footer-wrap']}>
-                        <section className={styles['footer-brand']}>
-                            <a className={`${styles.brand} ${styles['brand--footer']}`} href="/" aria-label="Veilscope Home">
-                                <img className={styles['brand-logo']} src="/assets/img/logos/veilscope-logo-light.svg" alt="Veilscope" />
+                <div className="footer-leadin" aria-hidden="true"></div>
+                <footer className="site-footer" role="contentinfo">
+                    <div className="footer-wrap">
+                        <section className="footer-brand">
+                            <a className="brand brand--footer" href="/" aria-label="Veilscope Home">
+                                <img className="brand-logo" src="/assets/img/logos/veilscope-logo-light.svg" alt="Veilscope" />
                             </a>
-                            <p className={styles['footer-tagline']}>AI insights from public financial filings.</p>
+                            <p className="footer-tagline">AI insights from public financial filings.</p>
 
-                            <div className={styles.newsletter}>
-                                <label className={styles['newsletter-label']} htmlFor="updates-link">Project Updates</label>
-                                <div className={styles['newsletter-row']}>
-                                    <a id="updates-link" className={`${styles.btn} ${styles['btn-get-started']}`} href="/updates">See updates</a>
+                            <div className="newsletter">
+                                <label className="newsletter-label" htmlFor="updates-link">Project Updates</label>
+                                <div className="newsletter-row">
+                                    <a id="updates-link" className="btn btn-get-started" href="/updates">See updates</a>
                                 </div>
-                                <p className={styles['newsletter-help']}>We’ll offer email updates soon.</p>
+                                <p className="newsletter-help">We’ll offer email updates soon.</p>
                             </div>
                         </section>
 
-                        <nav className={styles['footer-col']} aria-label="Explore">
-                            <h3 className={styles['footer-title']}>Explore</h3>
-                            <ul className={styles['footer-links']}>
+                        <nav className="footer-col" aria-label="Explore">
+                            <h3 className="footer-title">Explore</h3>
+                            <ul className="footer-links">
                                 <li><a href="/about">About Us</a></li>
                                 <li><a href="/learn-more#faq">About the Project</a></li>
                                 <li><a href="/updates">Project Updates</a></li>
@@ -242,17 +238,17 @@ export default function HomePage() {
                             </ul>
                         </nav>
 
-                        <nav className={styles['footer-col']} aria-label="Connect">
-                            <h3 className={styles['footer-title']}>Connect</h3>
-                            <ul className={styles['footer-links']}>
+                        <nav className="footer-col" aria-label="Connect">
+                            <h3 className="footer-title">Connect</h3>
+                            <ul className="footer-links">
                                 <li><a href="/updates">Newsletter</a></li>
                                 <li><a href="/contact">Contact</a></li>
                             </ul>
                         </nav>
 
-                        <nav className={styles['footer-col']} aria-label="Socials">
-                            <h3 className={styles['footer-title']}>Socials</h3>
-                            <ul className={styles['footer-links']}>
+                        <nav className="footer-col" aria-label="Socials">
+                            <h3 className="footer-title">Socials</h3>
+                            <ul className="footer-links">
                                 <li><a href="#">Instagram</a></li>
                                 <li><a href="#">TikTok</a></li>
                                 <li><a href="#">Facebook</a></li>
@@ -260,9 +256,9 @@ export default function HomePage() {
                         </nav>
                     </div>
 
-                    <div className={styles['footer-bottom']}>
-                        <p className={styles.copyright}>© <span id="year"></span> Veilscope. All rights reserved.</p>
-                        <ul className={styles['legal-links']}>
+                    <div className="footer-bottom">
+                        <p className="copyright">© <span id="year"></span> Veilscope. All rights reserved.</p>
+                        <ul className="legal-links">
                             <li><a href="#">Privacy</a></li>
                             <li><a href="#">Terms</a></li>
                             <li><a href="#">Status</a></li>

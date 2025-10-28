@@ -8,8 +8,6 @@ export default function WebAppPage() {
             <Head>
                 <title>Veilscope — App Preview</title>
                 <meta name="color-scheme" content="light dark" />
-                <link rel="stylesheet" href="/assets/css/app.css" />
-                <link rel="stylesheet" href="/assets/css/pages/webapp.css" />
             </Head>
 
             <body className={styles.webapp}>

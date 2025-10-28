@@ -19,10 +19,7 @@ export default function AboutPage() {
                 {/* Fonts + global CSS */}
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
-                    rel="stylesheet"
-                />
+                
             </Head>
 
             <div className={styles.page}>

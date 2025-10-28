@@ -21,7 +21,136 @@
   --viz-aspect:16/9;
   --viz-min-h:260px;
   --viz-max-h:380px;
+/* ==============================
+   Landing Page
+   ============================== */
+  --home-maxw: 1200px;
+  --home-shadow: 0 10px 30px rgba(0,0,0,.08);
+/* ==============================
+   About Page
+   ============================== */
+    --_container: 1160px;
+    --_gap-lg: 28px;
+    --_gap-md: 20px;
+    --_gap-sm: 14px;
+
+    /* gentle secondary text if not provided globally */
+    --_ink-2: #374151;
+
+/* ==============================
+   Contact Page
+   ============================== */
+  --wrap-max: 1160px;
+  --pad-x: 20px;
+  --ring: rgba(59,130,246,.15);
+  --border-subtle: #E5E7EB;
+/* ==============================
+   Learn more Page
+   ============================== */
+  --_container: 1160px;
+  --_gap-lg: 28px;
+  --_gap-md: 20px;
+  --_gap-sm: 14px;
+/* ==============================
+   Update card Page
+   ============================== */
+  --wrap-max: 1160px; --pad-x: 20px;
+/* ==============================
+   Project Updates Page
+   ============================== */
+  --primary-bg: #F3F4F6;
+  --ink: #1F2937;
+  --ink-2: #374151;
+  --muted: #6B7280;
+  --ui: #E5E7EB;
+  --ring: rgba(59,130,246,.15);
+  --blue: #3B82F6;
+  --magenta: #EC4899;
+  --shadow: 0 8px 28px rgba(2, 8, 23, .08);
+  --radius-xl: 18px;
+
+  --card-h: 368px;
+  --card-h-featured: 368px;
+  --media-frac: .52;
+
+  --gap-lg: 28px;
+  --gap-md: 22px;
+  --gap-sm: 16px;
+/* ==============================
+   Web app Page
+   ============================== */
+
+  color-scheme: light dark;
+
+   --topbar-h: 56px;
+  --status-h: 28px;
+  --rail-w: 280px;
+
+  --accent: var(--color-accent-2, #EC4899);
+
+  /* Light defaults */
+  --bg: #F6F7FB;
+  --panel: #FFFFFF;
+  --panel-2:#F3F4F6;
+  --ink: #111827;
+  --ink-2:#374151;
+  --ui: #E5E7EB;
+
+  /* Factor colors */
+  --good:#10B981; /* green */
+  --med: #F59E0B; /* yellow */
+  --bad: #EF4444; /* red */
+
+  
+
 }
+/* ==============================
+   Web app Page
+   ============================== */
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg: #0F1924;
+    --panel: #162330;
+    --panel-2:#0E1A24;
+    --ink: #E8EEF6;
+    --ink-2:#B8C2CE;
+    --ui: #263445;
+  }
+}
+
+html[data-theme="dark"]{
+  --bg: #0F1924;
+  --panel: #162330;
+  --panel-2:#0E1A24;
+  --ink: #E8EEF6;
+  --ink-2:#B8C2CE;
+  --ui: #263445;
+}
+html[data-theme="light"]{
+  --bg: #F6F7FB;
+  --panel: #FFFFFF;
+  --panel-2:#F3F4F6;
+  --ink: #111827;
+  --ink-2:#374151;
+  --ui: #E5E7EB;
+}
+
+body.webapp{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+html[data-theme="light"] .logo-dark,
+html[data-theme="system"] .logo-dark{ display:inline; }
+@media (prefers-color-scheme: dark){
+  html[data-theme="system"] .logo-dark{ display:none; }
+  html[data-theme="system"] .logo-light{ display:inline; }
+}
+html[data-theme="dark"] .logo-light{ display:inline; }
+html[data-theme="dark"] .logo-dark{ display:none; }
 
 *{box-sizing:border-box}
 html,body{height:100%;width:100%;max-width:100%;overflow-x:hidden;scroll-behavior:smooth}

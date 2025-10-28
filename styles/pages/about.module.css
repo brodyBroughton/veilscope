@@ -3,17 +3,6 @@
    Uses global tokens from app.css and mirrors the Updates hero styles
    ========================================================================== */
 
-/* Local helpers (fallbacks only—will defer to app.css tokens if present) */
-:root{
-  --_container: 1160px;
-  --_gap-lg: 28px;
-  --_gap-md: 20px;
-  --_gap-sm: 14px;
-
-  /* gentle secondary text if not provided globally */
-  --_ink-2: #374151;
-}
-
 /* Shared container width + side padding */
 .about-wrap,
 .about-hero .container,

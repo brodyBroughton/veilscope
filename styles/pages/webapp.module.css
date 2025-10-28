@@ -2,63 +2,6 @@
    Veilscope App Preview — VS Code-style shell
    ========================================================================== */
 
-:root { color-scheme: light dark; }
-
-:root{
-  --topbar-h: 56px;
-  --status-h: 28px;
-  --rail-w: 280px;
-
-  --accent: var(--color-accent-2, #EC4899);
-
-  /* Light defaults */
-  --bg: #F6F7FB;
-  --panel: #FFFFFF;
-  --panel-2:#F3F4F6;
-  --ink: #111827;
-  --ink-2:#374151;
-  --ui: #E5E7EB;
-
-  /* Factor colors */
-  --good:#10B981; /* green */
-  --med: #F59E0B; /* yellow */
-  --bad: #EF4444; /* red */
-}
-
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg: #0F1924;
-    --panel: #162330;
-    --panel-2:#0E1A24;
-    --ink: #E8EEF6;
-    --ink-2:#B8C2CE;
-    --ui: #263445;
-  }
-}
-
-html[data-theme="dark"]{
-  --bg: #0F1924;
-  --panel: #162330;
-  --panel-2:#0E1A24;
-  --ink: #E8EEF6;
-  --ink-2:#B8C2CE;
-  --ui: #263445;
-}
-html[data-theme="light"]{
-  --bg: #F6F7FB;
-  --panel: #FFFFFF;
-  --panel-2:#F3F4F6;
-  --ink: #111827;
-  --ink-2:#374151;
-  --ui: #E5E7EB;
-}
-
-body.webapp{
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
 .no-scroll{ overflow: hidden; }
 .sr-only{ position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); border:0; }
 
@@ -131,14 +74,6 @@ body.webapp{
 /* Theme-aware logos */
 .app-brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
 .app-brand .logo{ height: 24px; display: none; }
-html[data-theme="light"] .logo-dark,
-html[data-theme="system"] .logo-dark{ display:inline; }
-@media (prefers-color-scheme: dark){
-  html[data-theme="system"] .logo-dark{ display:none; }
-  html[data-theme="system"] .logo-light{ display:inline; }
-}
-html[data-theme="dark"] .logo-light{ display:inline; }
-html[data-theme="dark"] .logo-dark{ display:none; }
 
 /* ===== Popovers (notifications/profile) ===== */
 .popover[hidden]{ display:none; }
