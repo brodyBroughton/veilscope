@@ -5,7 +5,6 @@ console.log("ENV SMTP_HOST:", process.env.SMTP_HOST);
 console.log("ENV SMTP_PORT:", process.env.SMTP_PORT);
 console.log("ENV SMTP_USER:", process.env.SMTP_USER);
 
-
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.status(405).json({ error: "Method not allowed" });
