@@ -1,4 +1,4 @@
-// Veilscope marketing JS (tiny, no frameworks)
+// public/assets/js/app.js
 (function () {
   var toggle = document.getElementById('nav-toggle');
   var burger = document.querySelector('.hamburger');
@@ -57,22 +57,52 @@
     });
   }
 
-  // Contact form (dummy)
+  // Contact form (JSON submit)
   var contact = document.getElementById('contact-form');
   if (contact) {
-    contact.addEventListener('submit', function (e) {
+    contact.addEventListener('submit', async function(e) {
       e.preventDefault();
       var msg = document.getElementById('contact-msg');
-      msg.textContent = 'Thanks — we received your message and will respond soon.';
-      contact.reset();
+
+      // Collect form data as JSON
+      var data = {
+        name: contact.querySelector('input[name="name"]').value.trim(),
+        email: contact.querySelector('input[name="email"]').value.trim(),
+        topic: contact.querySelector('select[name="topic"]').value,
+        message: contact.querySelector('textarea[name="message"]').value.trim()
+      };
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || 'Failed to send message');
+        }
+
+        msg.textContent = 'Thanks — we received your message and will respond soon.';
+        contact.reset();
+      } catch (err) {
+        console.error('Contact form submit error:', err);
+        msg.textContent = 'Oops — something went wrong. Please try again later.';
+      }
     });
   }
-})();
-// ONE place to control "Get Started" link site-wide
-(function(){
-  const APP_URL = 'webapp.html'; // later: 'https://app.veilscope.com'
-  const ready = (fn) => (document.readyState !== 'loading') ? fn() : document.addEventListener('DOMContentLoaded', fn);
-  ready(() => {
-    document.querySelectorAll('a.btn-get-started').forEach(a => { a.href = APP_URL; });
-  });
+
+  // ONE place to control "Get Started" link site-wide
+  (function(){
+    const APP_URL = 'https://app.veilscope.com'; // update your live URL
+    const ready = (fn) => (document.readyState !== 'loading') ? fn() : document.addEventListener('DOMContentLoaded', fn);
+    ready(() => {
+      document.querySelectorAll('a.btn-get-started').forEach(a => { a.href = APP_URL; });
+    });
+  })();
+
 })();

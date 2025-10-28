@@ -4,7 +4,7 @@
 */
 
 (function () {
-  const DATA_URL = 'assets/data/updates.json';
+  const DATA_URL = 'public/assets/data/updates.json';
 
   // DOM refs
   const grid = document.querySelector('.updates-grid');
