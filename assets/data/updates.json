@@ -53,7 +53,7 @@
       "imageAlt": "Placeholder Image for Report Card",
       "tags": ["Cool tag 1", "Another cool tag"],
       "featured": false,
-      "content": "<p >Progress report</p><p>Summary:</p><p>Blah blah balh</p><p>Things added</p><ul><li>Thing 1</li><li>Thing 2</li></ul><p><strong>Conclusion</strong></p>"
+      "content": "<p>Progress report</p><p>Summary:</p><p>Blah blah balh</p><p>Things added</p><ul><li>Thing 1</li><li>Thing 2</li></ul><p><strong>Conclusion</strong></p>"
     }
   ]
 }
