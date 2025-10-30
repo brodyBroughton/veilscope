@@ -142,6 +142,22 @@
   height: 100%; min-height: 0; box-sizing: border-box;
 }
 
+/* Make the inner link fill the card and remove default link styling */
+.update-card-link{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  /* allows :focus-visible ring to sit nicely within the rounded card */
+  border-radius: var(--radius-xl);
+}
+.update-card-link:focus-visible{
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+}
+
 /* Media area */
 .update-media {
   position: relative;
@@ -149,6 +165,9 @@
   background: linear-gradient(180deg, #F8FAFC, #F3F4F6);
   overflow: hidden;
 }
+
+/* NEW: ensure <picture> fills the frame like the absolute <img> */
+.update-media picture{ position:absolute; inset:0; display:block; }  /* ← added */
 
 /* IMPORTANT: hide browser alt-text fallback if an image fails */
 .update-media img {
@@ -221,8 +240,14 @@
   display: flex; gap: 12px; align-items: center;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.update-actions a{ color: var(--blue); font-weight: 800; text-decoration: none; }
-.update-actions a:hover{ text-decoration: underline; }
+/* Style the visual "Read more" whether it's an <a> or <span> in the wrapper link */
+.update-actions a,
+.update-card-link .read-more{
+  color: var(--blue);
+  font-weight: 800;
+  text-decoration: none;
+}
+.update-card-link:hover .read-more{ text-decoration: underline; }
 
 /* Responsive */
 @media (max-width: 1200px){
@@ -276,7 +301,7 @@
 .update-media .badge{
   /* layered shadows: thin white ring + soft white glow + existing pink depth */
   box-shadow:
-    0 0 0 2px rgba(255,255,255,0.90),   /* crisp white ring */
-    0 0 10px rgba(255,255,255,0.70),    /* faint white glow */
-    0 6px 18px rgba(236,72,153,0.28);   /* keep the magenta depth */
+    0 0 0 2px rgba(255,255,255,0.90),
+    0 0 10px rgba(255,255,255,0.70),
+    0 6px 18px rgba(236,72,153,0.28);
 }

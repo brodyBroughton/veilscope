@@ -1,6 +1,7 @@
 /* assets/js/updates.js
    Project Updates: render grid + filters + sorting.
    - Featured highlighting only applies when sort === 'featured'
+   - Images: responsive <picture> with AVIF/WebP + JPEG fallback, width/height for CLS, lazy loaded
 */
 
 (function () {
@@ -31,6 +32,35 @@
       .replace(/(^-|-$)/g, '');
 
   const parseDate = (d) => new Date(d);
+
+  const escapeAttr = (s = '') => String(s).replace(/"/g, '&quot;');
+
+  const splitExt = (path = '') => {
+    const m = path.match(/^(.*)\.([a-z0-9]+)$/i);
+    return m ? { base: m[1], ext: m[2].toLowerCase() } : { base: path, ext: '' };
+  };
+
+  // Build a responsive <picture> block for card thumbnails.
+  // Uses -600 and -1200 variants (AVIF/WebP/JPEG) with the original file as src fallback.
+  function cardPictureMarkup(src, alt) {
+    const { base } = splitExt(src || '');
+    const sizes = '(max-width: 720px) 100vw, (max-width: 1200px) 50vw, 33vw';
+    const width = 1200;   // intrinsic natural size hint (prevents CLS) — 16:9 assumed
+    const height = 675;
+
+    return `
+<picture>
+  <source type="image/avif" srcset="${base}-600.avif 600w, ${base}-1200.avif 1200w" sizes="${sizes}">
+  <source type="image/webp" srcset="${base}-600.webp 600w, ${base}-1200.webp 1200w" sizes="${sizes}">
+  <img
+    src="${src}"
+    srcset="${base}-600.jpg 600w, ${base}-1200.jpg 1200w"
+    sizes="${sizes}"
+    width="${width}" height="${height}"
+    alt="${escapeAttr(alt || '')}" loading="lazy" decoding="async"
+    onerror="this.style.display='none'; this.closest('.update-media').classList.add('is-empty');">
+</picture>`;
+  }
 
   // Restore state from URL if present
   const params = new URLSearchParams(location.search);
@@ -136,31 +166,34 @@
     const href = buildReadMoreHref(update);
     const dateStr = date ? new Date(date).toLocaleDateString() : '';
 
+    // Entire card is clickable via a single wrapper <a> (HTML5-valid block link).
+    // The inner "Read more" is a <span> styled like a link.
     return `
 <article class="update-card ${showFeatured ? 'update-card--featured' : ''}">
-  <div class="update-media ${image ? '' : 'is-empty'}">
-    ${badge}
-    ${
-      image
-        ? `<img src="${image}" alt="${imageAlt || ''}" loading="lazy" decoding="async"
-               onerror="this.style.display='none'; this.closest('.update-media').classList.add('is-empty');">`
-        : `<div class="is-empty" aria-hidden="true"></div>`
-    }
-  </div>
-
-  <div class="update-body">
-    <div class="update-meta">
-      <time datetime="${date || ''}">${dateStr || ''}</time>
-      <div class="update-tags">${pills}</div>
+  <a class="update-card-link" href="${href}" aria-label="Read more about ${escapeAttr(title)}">
+    <div class="update-media ${image ? '' : 'is-empty'}">
+      ${badge}
+      ${
+        image
+          ? cardPictureMarkup(image, imageAlt)
+          : `<div class="is-empty" aria-hidden="true"></div>`
+      }
     </div>
 
-    <h3 class="update-title">${title}</h3>
-    <p class="update-summary">${summary}</p>
+    <div class="update-body">
+      <div class="update-meta">
+        <time datetime="${date || ''}">${dateStr || ''}</time>
+        <div class="update-tags">${pills}</div>
+      </div>
 
-    <div class="update-actions">
-      <a class="read-more" href="${href}" aria-label="Read more about ${title}">Read more →</a>
+      <h3 class="update-title">${title}</h3>
+      <p class="update-summary">${summary}</p>
+
+      <div class="update-actions">
+        <span class="read-more">Read more →</span>
+      </div>
     </div>
-  </div>
+  </a>
 </article>`;
   }
 

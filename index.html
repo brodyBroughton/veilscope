@@ -240,14 +240,15 @@
         </a>
         <p class="footer-tagline">AI insights from public financial filings.</p>
 
-        <!-- For now, route people to updates page instead of a placeholder form -->
-        <div class="newsletter">
-          <label class="newsletter-label" for="updates-link">Project Updates</label>
+        <form class="newsletter" action="#" method="post" novalidate>
+          <label class="newsletter-label" for="newsletter-email">Project Updates</label>
           <div class="newsletter-row">
-            <a id="updates-link" class="btn btn-get-started" href="updates.html">See updates</a>
+            <input id="newsletter-email" name="email" type="email" placeholder="you@example.com" required />
+            <button class="btn btn-get-started" type="submit">Subscribe</button>
           </div>
-          <p class="newsletter-help">We’ll offer email updates soon.</p>
-        </div>
+          <p class="newsletter-help">By signing up, you agree to receive emails. Read our <a href="#">Privacy Policy</a>.</p>
+          <p class="newsletter-msg" aria-live="polite"></p>
+        </form>
       </section>
 
       <nav class="footer-col" aria-label="Explore">
@@ -264,14 +265,16 @@
       <nav class="footer-col" aria-label="Connect">
         <h3 class="footer-title">Connect</h3>
         <ul class="footer-links">
-          <li><a href="updates.html">Newsletter</a></li>
-          <li><a href="https://contact.veilscope.com">Contact</a></li>
+          <li><a href="#">Resources and References</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
         </ul>
       </nav>
 
       <nav class="footer-col" aria-label="Socials">
         <h3 class="footer-title">Socials</h3>
         <ul class="footer-links">
+          <li><a href="#">Newsletter</a></li>
           <li><a href="#">Instagram</a></li>
           <li><a href="#">TikTok</a></li>
           <li><a href="#">Facebook</a></li>

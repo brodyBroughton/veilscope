@@ -1,6 +1,7 @@
 /* assets/js/update.js
    Reads ?slug=..., fetches updates.json, renders detail page.
    Preserves sort/tag/q on the "Back to Updates" link.
+   Hero image: responsive <picture> with AVIF/WebP/JPEG + width/height for CLS.
 */
 
 (function () {
@@ -11,8 +12,7 @@
   const dateEl = $('#update-date');
   const tagsEl = $('#update-tags');
   const badgeEl = $('#update-badge');
-  const imgEl = $('#update-image');
-  const imgAltEl = $('#update-image-alt');
+  const figureEl = document.querySelector('.hero-figure'); // we replace its contents
   const articleEl = $('#update-article');
   const backLink = $('#back-link');
   const prevLink = $('#prev-update');
@@ -25,6 +25,32 @@
       .replace(/['"]/g, '')
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '');
+
+  const escapeAttr = (s = '') => String(s).replace(/"/g, '&quot;');
+  const splitExt = (path = '') => {
+    const m = path.match(/^(.*)\.([a-z0-9]+)$/i);
+    return m ? { base: m[1], ext: m[2].toLowerCase() } : { base: path, ext: '' };
+  };
+
+  function heroPictureMarkup(src, alt) {
+    const { base } = splitExt(src || '');
+    const sizes = '(max-width: 720px) 100vw, 1200px';
+    const width = 1200;   // max display width on this page
+    const height = 675;   // 16:9 as a sensible default
+
+    return `
+<picture>
+  <source type="image/avif" srcset="${base}-1200.avif 1200w" sizes="${sizes}">
+  <source type="image/webp" srcset="${base}-1200.webp 1200w" sizes="${sizes}">
+  <img id="update-image"
+       src="${src}"
+       srcset="${base}-1200.jpg 1200w"
+       sizes="${sizes}"
+       width="${width}" height="${height}"
+       alt="${escapeAttr(alt || '')}" loading="lazy" decoding="async">
+</picture>
+<figcaption id="update-image-alt" class="sr-only">${alt ? String(alt) : ''}</figcaption>`;
+  }
 
   const params = new URLSearchParams(location.search);
   const slug = params.get('slug');
@@ -114,16 +140,14 @@
     // featured badge — show only when the data has a *boolean* true
     badgeEl.toggleAttribute('hidden', featured !== true);
 
-    // media
-    if (image) {
-      imgEl.src = image;
-      imgEl.alt = imageAlt || '';
-    } else {
-      imgEl.src = '';
-      imgEl.alt = '';
-      imgEl.style.display = 'none';
+    // media (responsive picture)
+    if (image && figureEl) {
+      figureEl.innerHTML = heroPictureMarkup(image, imageAlt || '');
+      figureEl.style.display = '';
+    } else if (figureEl) {
+      figureEl.innerHTML = '';
+      figureEl.style.display = 'none';
     }
-    if (imageAlt) imgAltEl.textContent = imageAlt;
 
     // content
     const text = html || content || body || summary;
@@ -134,7 +158,7 @@
   function renderNotFound() {
     titleEl.textContent = 'Update not found';
     articleEl.innerHTML = `<p>We couldn’t find that update. <a href="${backLink.href}">Back to Updates</a>.</p>`;
-    imgEl.style.display = 'none';
+    if (figureEl) { figureEl.innerHTML = ''; figureEl.style.display = 'none'; }
     dateEl.textContent = '';
     tagsEl.innerHTML = '';
     badgeEl.hidden = true;
