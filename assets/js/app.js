@@ -70,7 +70,7 @@
 })();
 // ONE place to control "Get Started" link site-wide
 (function(){
-  const APP_URL = 'webapp.html'; // later: 'https://app.veilscope.com'
+  const APP_URL = 'https://app.veilscope.com/signup';
   const ready = (fn) => (document.readyState !== 'loading') ? fn() : document.addEventListener('DOMContentLoaded', fn);
   ready(() => {
     document.querySelectorAll('a.btn-get-started').forEach(a => { a.href = APP_URL; });
