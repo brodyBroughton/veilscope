@@ -1,62 +1,56 @@
 # Veilscope Marketing Site
 
-## Overview
-Veilscope is a static marketing site that introduces an AI-powered platform for translating SEC filings into plain-language risk scorecards. It includes a hero landing page, supporting content for investors, a team profile, contact form, and a prototype of the in-product web app experience. 【F:index.html†L33-L134】【F:learn-more.html†L37-L196】【F:about.html†L40-L124】
+Static marketing site for Veilscope, an AI companion that translates SEC filings into plain‑language risk signal scorecards for individual investors. The site highlights the product value, explains the data pipeline, and surfaces ongoing product updates.
 
-### Live Site
-- Marketing Site: [veilscope.com](https://veilscope.com)
-- Web Application: [app.veilscope.com](https://app.veilscope.com)
-  - Tip: The interactive web app design can be explored by clicking any **Get Started** button across the site.
+## Features
+- **Landing page (`index.html`)** – Investor-focused hero, trust signals, SEC EDGAR provenance callouts, responsive navigation with mobile drawer, and CTA buttons linking to the live app.
+- **Learn more (`learn-more.html`)** – Problem/solution framing, three-step “Retrieve → Extract → Generate” workflow, sample scorecard highlights, FAQ, and disclaimers.
+- **About us (`about.html`)** – Mission statement plus compact founder bios with roles, prior experience, and skills tags.
+- **Project updates listing (`updates.html`)** – Fetches updates from the public API, supports search, tag chips, sort options, and featured highlighting with lazy-loaded responsive media.
+- **Update detail (`update.html`)** – Loads a single update via query-string slug, renders structured content (hero image, tags, featured badge), and exposes previous/next navigation that preserves listing filters.
 
-## Project Structure
+## Project structure
 ```
 veilscope/
 ├── index.html                # Landing page
-├── learn-more.html           # Deep dive into the process
+├── learn-more.html           # Product deep dive
 ├── about.html                # Team and mission
-├── updates.html              # Filterable update listing
-├── update.html               # Individual update detail view
-├── contact.html              # Contact form
-├── webapp.html               # In-app prototype preview
+├── updates.html              # Filterable updates grid
+├── update.html               # Individual update detail
 ├── assets/
-│   ├── css/                  # Global and page-specific stylesheets
-│   ├── img/                  # Logos, favicons, illustrations
-│   └── js/                   # Vanilla JS for navigation, updates, webapp demo
+│   ├── css/                  # Global styles + page-specific styles in pages/
+│   ├── img/                  # Logos, favicons, hero art, thumbnails
+│   └── js/                   # Minimal vanilla JS for nav, updates, and detail pages
+├── archive/                  # Historical contact page (unused)
 └── favicon.ico
 ```
 
-## Key Pages & Features
-- **Landing page (`index.html`)** – Highlights Veilscope's value proposition, explains how filings flow through an AI model, and showcases feature illustrations before driving visitors to create an account. Accessible navigation includes skip links, responsive header, and mobile drawer. 【F:index.html†L33-L272】【F:assets/css/app.css†L24-L155】
-- **Learn More (`learn-more.html`)** – Outlines the problem/solution framing, the three-step pipeline (retrieve → extract → generate), scorecard inputs and outputs, FAQs, and disclaimers to set expectations for investors. 【F:learn-more.html†L71-L276】
-- **About Us (`about.html`)** – Shares the project mission and profiles the founding team and sponsor, complete with roles, bios, and capability tags. 【F:about.html†L58-L180】
-- **Contact (`contact.html`)** – Provides a two-column layout with a contact form handled by `app.js`, plus quick links for email outreach. 【F:contact.html†L45-L116】【F:assets/js/app.js†L38-L65】
-- **Project Updates (`updates.html`)** – Renders a filterable grid of updates powered by the API at `app.veilscope.com` and `assets/js/updates.js`, supporting search, tag chips, and sort modes. 【F:updates.html†L71-L152】【F:assets/js/updates.js†L1-L198】
-- **Update detail (`update.html`)** – Uses query-string parameters to load a single update from the API, display feature badges, and build previous/next navigation while preserving listing filters. 【F:update.html†L43-L133】【F:assets/js/update.js†L1-L118】
-- **Web app preview (`webapp.html`)** – Demonstrates the intended product UI with tabs, drawer navigation, settings modal, and risk factor list populated by placeholder data in `webapp.js`. It also remembers theme preference and the last viewed company via `localStorage`. 【F:webapp.html†L1-L204】【F:assets/js/webapp.js†L1-L320】
+## Technology
+- Static HTML with semantic markup and ARIA labels for navigation, drawers, and skip links.
+- CSS organized by global (`assets/css/app.css`) and page-specific styles (`assets/css/pages/*`).
+- Vanilla JavaScript for navigation behavior and data fetching (`assets/js/app.js`, `assets/js/updates.js`, `assets/js/update.js`).
 
-## Global Behaviors
-- `assets/js/app.js` controls the responsive navigation, newsletter submissions, and centralizes the "Get Started" link target so it can be pointed at the real application URL in one place. 【F:assets/js/app.js†L1-L47】
-- Global styling lives in `assets/css/app.css`, which defines typography, layout grids, and responsive behaviors shared across every page. Page-specific enhancements live under `assets/css/pages/`. 【F:assets/css/app.css†L1-L208】
-
-## Working Locally
-Because the site is static HTML, you can view it by opening any page in a browser. For accurate routing (favicons, relative links, and fetch requests), serve the project with a lightweight HTTP server:
+## Running locally
+Serve the project from the repository root to preserve relative asset paths and API requests:
 
 ```bash
 cd veilscope
 python -m http.server 8000
 ```
 
-Then visit `http://localhost:8000/` in your browser.
+Then open `http://localhost:8000/` in your browser. The updates pages will request data from `http://localhost:3000/api/public/updates` when you load the site on localhost; otherwise they target `https://app.veilscope.com/api/public/updates`.
 
-## Updating Project Updates
-Project updates are now managed through the API at `app.veilscope.com`. The listing and detail views automatically fetch and display the latest content from the API.
+## Content and data
+- `assets/js/updates.js` hydrates the updates listing, builds responsive `<picture>` elements, and keeps search/tag/sort selections reflected in the URL for deep-linking.
+- `assets/js/update.js` reads the `slug` query parameter, fetches a matching update, and builds hero media, metadata chips, and previous/next links that respect the user’s original filters.
 
-## Changing Call-to-Action Links
-All "Get Started" buttons are kept in sync through the `APP_URL` constant in `assets/js/app.js`. Update that value to point at your production signup flow or test environment. 【F:assets/js/app.js†L49-L56】
+## CTA configuration
+All **Get Started** buttons read from a single `APP_URL` constant in `assets/js/app.js`. Update that value to point to a different signup or preview environment; the script rewrites every `.btn-get-started` link on DOM ready.
 
-## Accessibility Considerations
-The site includes skip-navigation links, ARIA labels on navigation and controls, semantic headings, and keyboard-friendly interactive components, including tabs, drawers, and modals in the web app preview. 【F:index.html†L29-L68】【F:webapp.html†L13-L160】【F:assets/js/webapp.js†L18-L140】
+## Accessibility and UX considerations
+- Skip-to-content links, keyboard-accessible navigation toggles, and ARIA labels on the hamburger/drawer controls.
+- Semantic headings and landmark regions across pages to improve screen reader navigation.
+- Lazy-loaded imagery with intrinsic dimensions to reduce layout shift on updates cards.
 
 ## Deployment
-Because everything is static assets, the project can be hosted on any static site host (GitHub Pages, Netlify, Vercel, S3, etc.). Ensure the root directory is the `veilscope/` folder so relative asset paths resolve correctly.
-
+Because the site is entirely static, it can be hosted on any static host (GitHub Pages, Netlify, Vercel, S3, etc.). Deploy the repository root as the web root to keep asset paths and favicon references intact.
