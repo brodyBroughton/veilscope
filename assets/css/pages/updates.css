@@ -294,7 +294,7 @@
 /* Keep the Featured badge above the image */
 .update-media .badge { z-index: 2; pointer-events: none; }
 
-/* (Optional, makes the order explicit) */
+/* Keeps stacking order explicit */
 .update-media img { z-index: 1; }
 
 /* === White halo around the Featured badge (readability on any image) === */

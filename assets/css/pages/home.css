@@ -93,7 +93,7 @@
   box-shadow:var(--home-shadow);
 }
 
-/* Keep your existing scroll cue look */
+/* Preserve scroll cue positioning from base styles */
 .home .scroll-cue{ bottom:18px; }
 
 /* ---- HOW IT WORKS ---- */
