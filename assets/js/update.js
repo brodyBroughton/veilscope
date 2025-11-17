@@ -18,7 +18,7 @@
   const dateEl = $("#update-date");
   const tagsEl = $("#update-tags");
   const badgeEl = $("#update-badge");
-  const figureEl = document.querySelector(".hero-figure"); // we replace its contents
+  const figureEl = document.querySelector(".hero-figure"); // contents are replaced dynamically
   const articleEl = $("#update-article");
   const backLink = $("#back-link");
   const prevLink = $("#prev-update");
