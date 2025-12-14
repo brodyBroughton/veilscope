@@ -77,29 +77,23 @@
     <section class="hero" aria-label="Intro hero">
       <div class="hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow">Built for retail investors</p>
+          <p class="eyebrow">Educational research for U.S. stocks</p>
           <h1 class="hero-title">
-            AI insights from SEC filings — clear, explainable, and fast
+            Veilscope turns dense SEC filings into clear, educational risk scorecards.
           </h1>
           <p class="hero-subtitle">
-            Veilscope parses public 10-K/10-Q data to surface transparent company scorecards and signals.
-            <strong>Educational only — not investment advice.</strong>
+            We summarize 10-K and 10-Q filings into plain-English insights, highlight key risks and trends, and link everything back to the original source.
           </p>
           <div class="hero-ctas">
             <a class="btn btn-get-started" href="https://app.veilscope.com/signup" data-event="cta_hero_signup">
               Create a free account
             </a>
-            <a class="btn btn-secondary" href="learn-more.html#how-title" data-event="cta_sample_scorecard">
+            <a class="btn btn-secondary" href="#how-it-works" data-event="cta_sample_scorecard">
               See how it works
             </a>
           </div>
-
-          <!-- Trust / provenance chips -->
-          <ul class="trust-bar" aria-label="Trust and provenance">
-            <li class="chip"><span class="dot" aria-hidden="true"></span><a href="https://www.sec.gov/edgar/searchedgar/companysearch" target="_blank" rel="noopener">Data source: SEC EDGAR</a></li>
-            <li class="chip">Explainable AI</li>
-            <li class="chip">No recommendations — educational use</li>
-          </ul>
+          <p class="hero-fine-print">Educational only. Not investment advice. U.S. stocks only.</p>
+          <p class="hero-trust">Built from public SEC filings with direct links to EDGAR.</p>
         </div>
 
         <figure class="hero-visual">
@@ -125,6 +119,29 @@
       </a>
     </section>
 
+    <!-- ===== TRANSPARENCY DEMO ===== -->
+    <section class="section-transparency" aria-labelledby="transparency-title">
+      <div class="transparency-wrap">
+        <header class="transparency-head">
+          <p class="eyebrow">Nothing is hidden</p>
+          <h2 id="transparency-title" class="transparency-title">See the filing and the summary together</h2>
+          <p class="transparency-lede">Every insight stays tied to the original SEC filing so you can double-check the source yourself.</p>
+        </header>
+        <div class="transparency-grid">
+          <div class="transparency-panel">
+            <h3>Example excerpt from a public SEC filing (demo)</h3>
+            <p>A snippet pulled directly from a recent 10-K—risk factors, management discussion, or key disclosures written by the company.</p>
+          </div>
+          <div class="transparency-panel">
+            <h3>Veilscope summary (demo)</h3>
+            <p>Plain-English context that explains what changed and why it matters for understanding the business.</p>
+            <p class="transparency-note">Links back to the exact EDGAR section.</p>
+            <a class="btn btn-secondary" href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">Open SEC EDGAR</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== HOW IT WORKS (3 steps) ===== -->
     <section id="how-it-works" class="section-how" aria-labelledby="how-title">
       <div class="how-wrap">
@@ -132,25 +149,51 @@
           <p class="how-eyebrow">How it works</p>
           <h2 id="how-title" class="how-title">From SEC filings to plain-English insights</h2>
           <p class="how-lede">
-            We turn dense public filings into transparent scorecards you can scan in seconds.
-            Want the details? See our <a class="how-link" href="learn-more.html#how-title">methodology overview</a>.
+            We pull U.S. filings directly from SEC EDGAR, keep context intact, and keep you anchored to the source.
+            Want more? See the <a class="how-link" href="learn-more.html#how-title">methodology overview</a>.
           </p>
         </header>
 
         <ol class="how-steps" role="list">
           <li class="how-step">
-            <h3>Retrieve</h3>
-            <p>We fetch public 10-K/10-Q disclosures via EDGAR.</p>
+            <h3>Step 1</h3>
+            <p>We pull public 10-K and 10-Q filings directly from the SEC’s EDGAR database.</p>
           </li>
           <li class="how-step">
-            <h3>Extract</h3>
-            <p>Signals are parsed and organized into consistent factors.</p>
+            <h3>Step 2</h3>
+            <p>Key financial disclosures and risk factors are parsed and organized into consistent, easy-to-read categories.</p>
           </li>
           <li class="how-step">
-            <h3>Explain</h3>
-            <p>We generate a scorecard with plain-English rationale and links to sources.</p>
+            <h3>Step 3</h3>
+            <p>You receive an educational risk scorecard with direct links back to the original filing.</p>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <!-- ===== WHO IT'S FOR ===== -->
+    <section class="section-who" aria-labelledby="who-title">
+      <div class="who-wrap">
+        <p class="eyebrow">Who it’s for</p>
+        <h2 id="who-title" class="who-title">Beginner-friendly, still credible for advanced investors</h2>
+        <div class="who-grid">
+          <article class="who-card">
+            <h3>Self-directed investors</h3>
+            <p>Already own a few stocks and want real research without reading hundreds of pages.</p>
+            <ul class="who-list">
+              <li>Uses a brokerage app and wants clarity, speed, and source links.</li>
+              <li>Comfortable with AI tools but expects transparent methodology.</li>
+            </ul>
+          </article>
+          <article class="who-card">
+            <h3>Advanced and time-strapped</h3>
+            <p>People who read filings or model companies but need a faster way to spot what changed.</p>
+            <ul class="who-list">
+              <li>Prefers tools that reduce grunt work while keeping raw filings a click away.</li>
+              <li>Skeptical of hype; wants verifiable, filing-backed summaries.</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -163,26 +206,52 @@
 
         <div class="features-grid">
           <article class="feature">
-            <h3 class="feature-title">Company scorecards</h3>
-            <p class="feature-text">An at-a-glance score with factor-by-factor rationale.</p>
+            <h3 class="feature-title">Educational risk scorecards</h3>
+            <p class="feature-text">Plain-English summaries of 10-K/10-Q filings with filing-backed context.</p>
             <a class="text-link" href="learn-more.html#how-title">See a sample scorecard</a>
           </article>
 
           <article class="feature">
             <h3 class="feature-title">Filing summaries</h3>
-            <p class="feature-text">10-K/10-Q distilled into highlights you can act on faster.</p>
+            <p class="feature-text">10-K/10-Q distilled into highlights you can review quickly while staying close to the source.</p>
             <a class="text-link" href="learn-more.html#how-title">View parsed 10-K demo</a>
           </article>
 
           <article class="feature">
             <h3 class="feature-title">Explainability</h3>
-            <p class="feature-text">Understand what shifted and why — with links back to sources.</p>
+            <p class="feature-text">Understand what shifted and why—with every point linked back to EDGAR.</p>
           </article>
 
           <article class="feature">
-            <h3 class="feature-title">Watchlists & alerts</h3>
-            <p class="feature-text">Track companies and get notified when material changes land.</p>
+            <h3 class="feature-title">Filing-change notifications</h3>
+            <p class="feature-text">Get notified when new 10-K/10-Q filings post so you can review the changes yourself.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHAT VEILSCOPE IS / ISN'T ===== -->
+    <section class="section-what" aria-labelledby="what-title">
+      <div class="what-wrap">
+        <p class="eyebrow">What Veilscope is / isn’t</p>
+        <h2 id="what-title" class="what-title">Clear on scope and limitations</h2>
+        <div class="what-grid">
+          <div class="what-card">
+            <h3>Veilscope is</h3>
+            <ul>
+              <li>An educational research tool that summarizes SEC filings</li>
+              <li>A way to review company risks and disclosures faster</li>
+              <li>A system that links directly to the original filing so you can verify everything yourself</li>
+            </ul>
+          </div>
+          <div class="what-card">
+            <h3>Veilscope isn’t</h3>
+            <ul>
+              <li>A financial advisor or robo-advisor</li>
+              <li>A source of stock recommendations or performance promises</li>
+              <li>A tool that tells you what to buy or sell</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -195,7 +264,7 @@
         <details class="disc">
           <summary><span>Is this investment advice?</span></summary>
           <div class="disc-panel">
-            <p>No. Veilscope is for information and education. Investing involves risk and you are responsible for your decisions.</p>
+            <p>No. Veilscope is an educational tool for U.S. stocks. Investing involves risk and you are responsible for your decisions.</p>
           </div>
         </details>
 
@@ -207,9 +276,9 @@
         </details>
 
         <details class="disc">
-          <summary><span>How do the scores work?</span></summary>
+          <summary><span>How do the scorecards work?</span></summary>
           <div class="disc-panel">
-            <p>We extract signals from filings and map them to consistent factors. See the overview on the Learn More page.</p>
+            <p>We extract key disclosures and risks from filings, organize them into consistent factors, and link each point back to EDGAR. It’s designed for learning, not recommendations.</p>
           </div>
         </details>
       </div>
@@ -220,11 +289,11 @@
       <div class="cta-wrap">
         <div class="cta-copy">
           <h2 id="cta-title" class="cta-title">Start in minutes</h2>
-          <p class="cta-lede">Create a free account to explore a sample scorecard.</p>
+          <p class="cta-lede">Create a free account to explore a sample risk scorecard built from SEC filings.</p>
           <div class="cta-actions">
             <a class="btn btn-get-started" href="https://app.veilscope.com/signup" data-event="cta_footer_signup">Create a free account</a>
           </div>
-          <p class="cta-disclaimer">Educational only — not investment advice. Data from SEC EDGAR.</p>
+          <p class="cta-disclaimer">Educational only. Not investment advice. U.S. stocks only. Data from SEC EDGAR.</p>
         </div>
       </div>
     </section>
@@ -239,10 +308,14 @@
           <img class="brand-logo" src="assets/img/logos/veilscope-logo-light.svg" alt="Veilscope Logo" />
         </a>
         <p class="footer-tagline">AI insights from public financial filings.</p>
+        <p class="footer-compliance">Educational only. Not investment advice. U.S. stocks only.</p>
 
         <div class="newsletter">
           <p class="newsletter-label">Project Updates</p>
-          <p class="newsletter-help">Project updates signup currently unavailable. Visit the <a href="updates.html">Project Updates page</a> to view all updates.</p>
+          <p class="newsletter-help">Occasional updates on product progress, new features, and research notes.</p>
+          <div class="newsletter-row">
+            <a class="btn btn-get-started" href="updates.html">View updates</a>
+          </div>
         </div>
       </section>
 
@@ -259,6 +332,7 @@
 
       <nav class="footer-col" aria-label="Connect">
         <h3 class="footer-title">Connect</h3>
+        <!-- TODO: Add Privacy Policy and Terms of Service pages and update the placeholder links below -->
         <ul class="footer-links">
           <li><a href="#">Resources and References</a></li>
           <li><a href="#">Privacy Policy</a></li>
@@ -279,6 +353,7 @@
 
     <div class="footer-bottom">
       <p class="copyright">© <span id="year"></span> Veilscope. All rights reserved.</p>
+      <!-- TODO: Replace placeholder legal links with real destinations when Privacy Policy and Terms are published -->
       <ul class="legal-links">
         <li><a href="#">Privacy</a></li>
         <li><a href="#">Terms</a></li>
