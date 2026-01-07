@@ -15,8 +15,15 @@
 
   const DATA_URL = APP_ORIGIN + "/api/public/updates";
 
+  // If your hosting/proxy setup exposes /api/public/updates on the *same* origin
+  // as this marketing site, we'll try that as a fallback.
+  const FALLBACK_URLS = Array.from(
+    new Set([DATA_URL, location.origin + "/api/public/updates"].filter(Boolean))
+  );
+
   // DOM refs
   const grid = document.querySelector(".updates-grid");
+  const statusEl = document.getElementById("updates-status");
   const searchInput = document.getElementById("updates-search");
   const chipsWrap = document.querySelector(".chips");
   const chipButtons = Array.from(chipsWrap?.querySelectorAll(".chip") || []);
@@ -29,6 +36,31 @@
     tag: "All",
     sort: "featured", // 'featured' | 'date_desc' | 'date_asc'
   };
+
+  // --- Loading UI helpers (skeleton + disabled controls) ---
+  function setLoading(isLoading) {
+    if (grid) {
+      grid.classList.toggle("is-loading", !!isLoading);
+      grid.setAttribute("aria-busy", isLoading ? "true" : "false");
+    }
+    if (statusEl) {
+      statusEl.textContent = isLoading ? "Loading updates…" : "";
+    }
+  }
+
+  function setControlsDisabled(disabled) {
+    if (searchInput) searchInput.disabled = !!disabled;
+    if (sortSelect) sortSelect.disabled = !!disabled;
+
+    chipButtons.forEach((btn) => {
+      btn.disabled = !!disabled;
+      btn.setAttribute("aria-disabled", disabled ? "true" : "false");
+      // Prevent tabbing to chips while disabled (cleaner keyboard UX)
+      btn.tabIndex = disabled ? -1 : 0;
+    });
+
+    if (chipsWrap) chipsWrap.setAttribute("aria-disabled", disabled ? "true" : "false");
+  }
 
   // --- Helpers ---
   const toSlug = (s = "") =>
@@ -88,29 +120,76 @@
   }
   if (sortSelect) sortSelect.value = state.sort;
 
-  // Fetch + render
-  fetch(DATA_URL)
-    .then((r) => r.json())
-    .then((data) => {
-      allUpdates = Array.isArray(data) ? data : data?.updates || [];
-      render();
-      bindEvents();
-    })
-    .catch((err) => {
-      console.error("Error loading updates JSON", err);
-      if (grid) grid.innerHTML = `<p>Failed to load updates.</p>`;
+  // --- Fetch (robust) ---
+  async function fetchJson(url) {
+    const res = await fetch(url, {
+      mode: "cors",
+      cache: "no-store",
+      credentials: "omit",
     });
+
+    // fetch() only rejects on network/CORS errors, not on HTTP errors, so we must check status.
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      const snippet = body.replace(/\s+/g, " ").trim().slice(0, 240);
+      throw new Error(
+        `HTTP ${res.status} ${res.statusText} from ${url}. Body: ${snippet || "(empty)"}`
+      );
+    }
+
+    const text = await res.text();
+    try {
+      return JSON.parse(text);
+    } catch (e) {
+      const ct = (res.headers.get("content-type") || "").toLowerCase();
+      const snippet = text.replace(/\s+/g, " ").trim().slice(0, 240);
+      throw new Error(
+        `Expected JSON from ${url} but got ${ct || "unknown content-type"}. Body: ${
+          snippet || "(empty)"
+        }`
+      );
+    }
+  }
+
+  async function loadUpdates() {
+    setLoading(true);
+    setControlsDisabled(true);
+
+    let lastErr = null;
+
+    for (const url of FALLBACK_URLS) {
+      try {
+        const data = await fetchJson(url);
+        allUpdates = Array.isArray(data) ? data : data?.updates || [];
+
+        setLoading(false);
+        setControlsDisabled(false);
+        render();
+        bindEvents();
+        return;
+      } catch (err) {
+        lastErr = err;
+        console.warn("[updates] Fetch attempt failed:", url, err);
+      }
+    }
+
+    console.error("[updates] All update endpoints failed.", lastErr);
+    setLoading(false);
+    setControlsDisabled(false);
+
+    if (statusEl) statusEl.textContent = "Failed to load updates. Check the console for details.";
+    if (grid) grid.innerHTML = `<p role="alert">Failed to load updates.</p>`;
+  }
+
+  // Kick off fetch immediately (skeletons are already in the HTML).
+  loadUpdates();
 
   // --- Filtering / sorting ---
   function filterBySearch(items, q) {
     if (!q) return items;
     const query = q.toLowerCase();
     return items.filter((u) => {
-      const hay = [
-        u.title || "",
-        u.summary || "",
-        ...(Array.isArray(u.tags) ? u.tags : []),
-      ]
+      const hay = [u.title || "", u.summary || "", ...(Array.isArray(u.tags) ? u.tags : [])]
         .join(" ")
         .toLowerCase();
       return hay.includes(query);
@@ -164,31 +243,19 @@
 
     const showFeatured = highlightFeatured && featured === true;
 
-    const badge = showFeatured
-      ? `<span class="badge badge-featured">Featured</span>`
-      : "";
+    const badge = showFeatured ? `<span class="badge badge-featured">Featured</span>` : "";
 
-    const pills = (tags || [])
-      .map((t) => `<span class="update-tag">${t}</span>`)
-      .join("");
+    const pills = (tags || []).map((t) => `<span class="update-tag">${t}</span>`).join("");
 
     const href = buildReadMoreHref(update);
     const dateStr = date ? new Date(date).toLocaleDateString() : "";
 
-    // Entire card is clickable via a single wrapper <a> (HTML5-valid block link).
-    // The inner "Read more" is a <span> styled like a link.
     return `
 <article class="update-card ${showFeatured ? "update-card--featured" : ""}">
-  <a class="update-card-link" href="${href}" aria-label="Read more about ${escapeAttr(
-      title
-    )}">
+  <a class="update-card-link" href="${href}" aria-label="Read more about ${escapeAttr(title)}">
     <div class="update-media ${image ? "" : "is-empty"}">
       ${badge}
-      ${
-        image
-          ? cardPictureMarkup(image, imageAlt)
-          : `<div class="is-empty" aria-hidden="true"></div>`
-      }
+      ${image ? cardPictureMarkup(image, imageAlt) : `<div class="is-empty" aria-hidden="true"></div>`}
     </div>
 
     <div class="update-body">
@@ -212,17 +279,12 @@
   function render() {
     if (!grid) return;
 
-    // Filter
     let items = filterBySearch(allUpdates, state.q);
     items = filterByTag(items, state.tag);
 
-    // Sort
     const sorted = sortItems(items, state.sort);
-
-    // Only highlight featured when sort === 'featured'
     const highlightFeatured = state.sort === "featured";
 
-    // Toggle helper class for layout (only if highlighting featured)
     if (highlightFeatured) {
       const featuredCount = sorted.filter((u) => !!u.featured).length;
       grid.classList.toggle("has-two-featured", featuredCount === 2);
@@ -230,7 +292,11 @@
       grid.classList.remove("has-two-featured");
     }
 
-    // Build markup
+    if (!sorted.length) {
+      grid.innerHTML = `<p role="status">No updates found.</p>`;
+      return;
+    }
+
     grid.innerHTML = sorted.map((u) => cardTemplate(u, highlightFeatured)).join("");
   }
 
@@ -240,6 +306,7 @@
       searchInput.addEventListener("input", (e) => {
         state.q = e.target.value.trim();
         render();
+
         const p = new URLSearchParams(location.search);
         state.q ? p.set("q", state.q) : p.delete("q");
         if (state.tag && state.tag !== "All") p.set("tag", state.tag);
@@ -252,9 +319,9 @@
       chipsWrap.addEventListener("click", (e) => {
         const btn = e.target.closest(".chip");
         if (!btn) return;
+
         state.tag = btn.dataset.tag || "All";
 
-        // Visual state
         chipButtons.forEach((b) => {
           const active = b === btn;
           b.setAttribute("aria-pressed", active ? "true" : "false");
@@ -273,7 +340,7 @@
 
     if (sortSelect) {
       sortSelect.addEventListener("change", (e) => {
-        state.sort = e.target.value; // 'featured' | 'date_desc' | 'date_asc'
+        state.sort = e.target.value;
         render();
 
         const p = new URLSearchParams(location.search);

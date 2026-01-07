@@ -81,6 +81,11 @@
         <input id="updates-search" type="search" placeholder="Search updates…" autocomplete="off" />
       </div>
 
+      <p id="updates-status" class="sr-only" role="status" aria-live="polite">
+        Loading updates…
+      </p>
+
+
       <!-- Updated: role="group" + aria-pressed -->
       <div class="chips" role="group" aria-label="Filter by tag">
         <button class="chip" data-tag="All" aria-pressed="true">All</button>
@@ -103,7 +108,116 @@
     <section class="updates-section" aria-labelledby="updates-grid-title">
       <div class="updates-wrap">
         <h2 id="updates-grid-title" class="sr-only">Latest updates</h2>
-        <div class="updates-grid"><!-- updates.js will inject cards here --></div>
+        <div class="updates-grid is-loading" aria-busy="true">
+  <!-- Skeletons (shown while data loads) -->
+  <article class="update-card update-card--featured skeleton" data-skeleton="true" aria-hidden="true">
+    <div class="update-card-link">
+      <div class="update-media">
+        <div class="skeleton-block sk-fill"></div>
+      </div>
+      <div class="update-body">
+        <div class="update-meta">
+          <span class="skeleton-block sk-date"></span>
+          <span class="skeleton-block sk-pill"></span>
+          <span class="skeleton-block sk-pill sk-pill--w2"></span>
+        </div>
+        <div class="skeleton-block sk-title"></div>
+        <div class="skeleton-block sk-title sk-title--short"></div>
+        <div class="skeleton-block sk-summary"></div>
+        <div class="skeleton-block sk-summary sk-summary--short"></div>
+        <div class="update-actions">
+          <span class="skeleton-block sk-link"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="update-card skeleton" data-skeleton="true" aria-hidden="true">
+    <div class="update-card-link">
+      <div class="update-media"><div class="skeleton-block sk-fill"></div></div>
+      <div class="update-body">
+        <div class="update-meta">
+          <span class="skeleton-block sk-date"></span>
+          <span class="skeleton-block sk-pill"></span>
+        </div>
+        <div class="skeleton-block sk-title"></div>
+        <div class="skeleton-block sk-title sk-title--short"></div>
+        <div class="skeleton-block sk-summary"></div>
+        <div class="skeleton-block sk-summary sk-summary--short"></div>
+        <div class="update-actions"><span class="skeleton-block sk-link"></span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="update-card skeleton" data-skeleton="true" aria-hidden="true">
+    <div class="update-card-link">
+      <div class="update-media"><div class="skeleton-block sk-fill"></div></div>
+      <div class="update-body">
+        <div class="update-meta">
+          <span class="skeleton-block sk-date"></span>
+          <span class="skeleton-block sk-pill"></span>
+        </div>
+        <div class="skeleton-block sk-title"></div>
+        <div class="skeleton-block sk-title sk-title--short"></div>
+        <div class="skeleton-block sk-summary"></div>
+        <div class="skeleton-block sk-summary sk-summary--short"></div>
+        <div class="update-actions"><span class="skeleton-block sk-link"></span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="update-card skeleton" data-skeleton="true" aria-hidden="true">
+    <div class="update-card-link">
+      <div class="update-media"><div class="skeleton-block sk-fill"></div></div>
+      <div class="update-body">
+        <div class="update-meta">
+          <span class="skeleton-block sk-date"></span>
+          <span class="skeleton-block sk-pill"></span>
+        </div>
+        <div class="skeleton-block sk-title"></div>
+        <div class="skeleton-block sk-title sk-title--short"></div>
+        <div class="skeleton-block sk-summary"></div>
+        <div class="skeleton-block sk-summary sk-summary--short"></div>
+        <div class="update-actions"><span class="skeleton-block sk-link"></span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="update-card skeleton" data-skeleton="true" aria-hidden="true">
+    <div class="update-card-link">
+      <div class="update-media"><div class="skeleton-block sk-fill"></div></div>
+      <div class="update-body">
+        <div class="update-meta">
+          <span class="skeleton-block sk-date"></span>
+          <span class="skeleton-block sk-pill"></span>
+        </div>
+        <div class="skeleton-block sk-title"></div>
+        <div class="skeleton-block sk-title sk-title--short"></div>
+        <div class="skeleton-block sk-summary"></div>
+        <div class="skeleton-block sk-summary sk-summary--short"></div>
+        <div class="update-actions"><span class="skeleton-block sk-link"></span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="update-card skeleton" data-skeleton="true" aria-hidden="true">
+    <div class="update-card-link">
+      <div class="update-media"><div class="skeleton-block sk-fill"></div></div>
+      <div class="update-body">
+        <div class="update-meta">
+          <span class="skeleton-block sk-date"></span>
+          <span class="skeleton-block sk-pill"></span>
+        </div>
+        <div class="skeleton-block sk-title"></div>
+        <div class="skeleton-block sk-title sk-title--short"></div>
+        <div class="skeleton-block sk-summary"></div>
+        <div class="skeleton-block sk-summary sk-summary--short"></div>
+        <div class="update-actions"><span class="skeleton-block sk-link"></span></div>
+      </div>
+    </div>
+  </article>
+</div>
+
 
         <!-- Load-more placeholder for future pagination -->
         <!-- <div class="load-more-wrap"><button class="btn btn-login load-more">Load more</button></div> -->

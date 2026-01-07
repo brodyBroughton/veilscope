@@ -305,3 +305,85 @@
     0 0 10px rgba(255,255,255,0.70),
     0 6px 18px rgba(236,72,153,0.28);
 }
+
+/* ==========================================================================
+   Skeleton loader (Project Updates)
+   ========================================================================== */
+
+.skeleton .update-card-link{
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Reusable skeleton block with shimmer */
+.skeleton-block{
+  position: relative;
+  display: block;
+  background: var(--ui);
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.skeleton-block::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,.65) 50%,
+    transparent 100%
+  );
+  animation: updates-shimmer 1.25s infinite;
+}
+
+@keyframes updates-shimmer{
+  100%{ transform: translateX(100%); }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce){
+  .skeleton-block::after{ animation: none; }
+}
+
+/* Skeleton sizing bits */
+.sk-fill{
+  position: absolute;
+  inset: 0;
+  border-radius: 0; /* media area already clips */
+}
+
+.sk-date{
+  width: 92px;
+  height: 12px;
+  border-radius: 999px;
+}
+
+.sk-pill{
+  width: 64px;
+  height: 18px;
+  border-radius: 999px;
+}
+
+.sk-pill--w2{ width: 82px; }
+
+.sk-title{
+  height: 18px;
+  margin-top: 10px;
+}
+
+.sk-title--short{ width: 72%; }
+
+.sk-summary{
+  height: 12px;
+  margin-top: 10px;
+}
+
+.sk-summary--short{ width: 84%; }
+
+.sk-link{
+  width: 94px;
+  height: 14px;
+  border-radius: 999px;
+}
