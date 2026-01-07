@@ -1,0 +1,307 @@
+/* ==========================================================================
+   Project Updates page styles
+   ========================================================================== */
+
+:root {
+  --primary-bg: #F3F4F6;
+  --ink: #1F2937;
+  --ink-2: #374151;
+  --muted: #6B7280;
+  --ui: #E5E7EB;
+  --ring: rgba(59,130,246,.15);
+  --blue: #3B82F6;
+  --magenta: #EC4899;
+  --shadow: 0 8px 28px rgba(2, 8, 23, .08);
+  --radius-xl: 18px;
+
+  --card-h: 368px;
+  --card-h-featured: 368px;
+  --media-frac: .52;
+
+  --gap-lg: 28px;
+  --gap-md: 22px;
+  --gap-sm: 16px;
+}
+
+/* Hero section */
+.updates-hero {
+  background: linear-gradient(180deg, #fff, rgba(59,130,246,.06));
+  padding: clamp(72px, 9vw, 120px) 0 clamp(28px, 4.5vw, 48px);
+  margin-top: var(--nav-height);
+  border-bottom: 1px solid var(--ui);
+}
+.updates-wrap {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+.updates-hero h1 {
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.updates-hero p {
+  color: var(--ink-2);
+  font-size: clamp(16px, 1.6vw, 18px);
+  margin: 0;
+}
+
+/* Toolbar */
+.updates-toolbar {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: var(--gap-sm);
+  padding: 16px 20px;
+  max-width: 1160px;
+  margin: 0 auto 10px;
+}
+.updates-toolbar .search input {
+  width: 100%;
+  border: 1px solid var(--ui);
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--ink);
+}
+.updates-toolbar .search input:focus {
+  outline: none;
+  box-shadow: 0 0 0 6px var(--ring);
+}
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.chip {
+  border: 1px solid var(--ui);
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-weight: 600;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: transform .08s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.chip[data-active="true"],
+.chip[aria-pressed="true"]{
+  background: rgba(236,72,153,.12);
+  border-color: rgba(236,72,153,.35);
+  color: var(--magenta);
+}
+.chip:active { transform: translateY(1px); }
+
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  color: var(--muted);
+  font-weight: 600;
+}
+.sort select {
+  border: 1px solid var(--ui);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font: inherit;
+}
+
+/* Grid for cards */
+.updates-section { padding: 10px 0 64px; }
+.updates-grid {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-inline: 20px;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gap-lg);
+  align-items: stretch;
+  grid-auto-rows: var(--card-h);
+}
+
+.update-card { grid-column: span 4; }
+.update-card--featured { grid-column: span 8; }
+
+@media (min-width: 1201px) {
+  .updates-grid.has-two-featured .update-card--featured { grid-column: span 6; }
+}
+
+/* Card */
+.update-card {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  height: 100%; min-height: 0; box-sizing: border-box;
+}
+
+/* Make the inner link fill the card and remove default link styling */
+.update-card-link{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  /* allows :focus-visible ring to sit nicely within the rounded card */
+  border-radius: var(--radius-xl);
+}
+.update-card-link:focus-visible{
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+}
+
+/* Media area */
+.update-media {
+  position: relative;
+  height: calc(var(--card-h) * var(--media-frac));
+  background: linear-gradient(180deg, #F8FAFC, #F3F4F6);
+  overflow: hidden;
+}
+
+/* NEW: ensure <picture> fills the frame like the absolute <img> */
+.update-media picture{ position:absolute; inset:0; display:block; }  /* ← added */
+
+/* IMPORTANT: hide browser alt-text fallback if an image fails */
+.update-media img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border: 0 !important; outline: none !important; box-shadow: none !important;
+  background: transparent;
+  /* visually suppress any alt-text fallback */
+  color: transparent; font-size: 0; text-indent: -9999px;
+}
+
+/* If we mark the media as empty, keep it visual-only with no text */
+.update-media.is-empty { background: linear-gradient(180deg,#F8FAFC,#F3F4F6); }
+.update-media .is-empty { width:100%; height:100%; font-size:0; color:transparent; }
+
+/* Badge */
+.badge {
+  position: absolute; top: 12px; left: 12px;
+  padding: 6px 10px; font-size: 12px; font-weight: 800; letter-spacing: .02em;
+  border-radius: 999px; color: #fff; background: var(--magenta);
+  box-shadow: 0 4px 12px rgba(236,72,153,.3);
+}
+
+/* Body */
+.update-body {
+  display: flex; flex-direction: column;
+  padding: 14px 16px 10px;
+  flex: 1 1 auto; min-height: 0;
+  border-top: 1px solid #EEF2F7;
+}
+.update-meta {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 8px 10px; color: var(--muted); font-size: 13px; margin-bottom: 2px;
+}
+.update-tags { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.update-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; font-size: 12px; color: var(--magenta);
+  background: rgba(236,72,153,.10); border: 1px solid rgba(236,72,153,.32);
+  padding: 4px 8px; border-radius: 999px;
+}
+
+/* Title & summary clamp */
+.update-title,
+.update-summary{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  --lh: 1.25; --lc: 2;
+  line-height: var(--lh);
+  max-height: calc(var(--lc) * var(--lh) * 1em);
+  line-clamp: var(--lc);
+  -webkit-line-clamp: var(--lc);
+}
+.update-title{
+  margin: 2px 0 0; color: var(--ink);
+  font-size: 18px; font-weight: 800; letter-spacing: -0.01em;
+}
+.update-card--featured .update-title{ font-size: 20px; }
+.update-summary{
+  margin: 0; color: var(--ink-2); font-size: 14px;
+  --lc: 2; --lh: 1.45;
+}
+.update-card--featured .update-summary{ --lc: 3; }
+
+/* Actions */
+.update-actions{
+  margin-top: auto; padding: 0 16px 14px;
+  display: flex; gap: 12px; align-items: center;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+/* Style the visual "Read more" whether it's an <a> or <span> in the wrapper link */
+.update-actions a,
+.update-card-link .read-more{
+  color: var(--blue);
+  font-weight: 800;
+  text-decoration: none;
+}
+.update-card-link:hover .read-more{ text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 1200px){
+  .updates-grid{ gap: var(--gap-md) }
+  .update-card{ grid-column: span 6 }
+  .update-card--featured{ grid-column: span 12 }
+}
+
+/* MOBILE: keep previous fixes + toolbar stacking */
+@media (max-width: 720px){
+  .updates-section{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+
+  .updates-toolbar{
+    grid-template-columns: 1fr;
+    gap: 12px; padding: 12px 20px 8px;
+  }
+  .updates-toolbar > .search,
+  .updates-toolbar > .chips,
+  .updates-toolbar > .sort{ min-width: 0; }
+  .chips{ justify-content:flex-start; }
+  .sort{ justify-content:flex-start; }
+  .sort select{ width:100%; }
+
+  .updates-grid{ gap:var(--gap-sm); grid-auto-rows:auto; }
+  .update-card{ height:auto; }
+  .update-media{ height:auto; aspect-ratio:16/9; }
+  .update-card--featured .update-media{ aspect-ratio:21/9; }
+
+  .update-title{ --lc:3; }
+  .update-summary{ --lc:3; }
+
+  @supports (-webkit-line-clamp:1){
+    .update-title,.update-summary{ max-height:none; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce){ .chip{ transition:none; } }
+
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+
+/* Keep the Featured badge above the image */
+.update-media .badge { z-index: 2; pointer-events: none; }
+
+/* Keeps stacking order explicit */
+.update-media img { z-index: 1; }
+
+/* === White halo around the Featured badge (readability on any image) === */
+.update-media .badge{
+  /* layered shadows: thin white ring + soft white glow + existing pink depth */
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.90),
+    0 0 10px rgba(255,255,255,0.70),
+    0 6px 18px rgba(236,72,153,0.28);
+}
